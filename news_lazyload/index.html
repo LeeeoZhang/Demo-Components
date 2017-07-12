@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻懒加载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            width: 50px;
+            height: 50px
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .message{
+            margin-left: 10px;
+        }
+        #news>li {
+            margin-top: 10px;
+        }
+        #news>li>a {
+            display: flex;
+        }
+        #loadMore {
+            margin: 10px auto;
+            color: #aaa;
+            width: 500px;
+        }
+        #news {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        #loadMore {
+            visibility: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="news">
+    </ul>
+    <p id="loadMore"></p>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="新闻懒加载.js"></script>
+</body>
+</html>
