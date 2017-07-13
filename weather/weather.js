@@ -10,7 +10,7 @@
 $(document).ready(function() {
 
     //获取城市数据
-    $.get("http://jirenguapi.applinzi.com/city.php")
+    $.get("https://jirenguapi.applinzi.com/city.php")
      .done(function(cityData) {
          $('#message span').text(cityData)
      }).fail(function() {
