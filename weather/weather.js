@@ -33,10 +33,12 @@ function getCity() {
 
 //获取天气数据
 function getWeather(city) {
-    if(city) {
-        let url = 'https://jirenguapi.applinzi.com/weather.php' + '?city=' + city
+    let url
+    let nowDay = new Date()
+    if(city === undefined) {
+         url = "https://jirenguapi.applinzi.com/weather.php"
     } else {
-        let url = 'https://jirenguapi.applinzi.com/weather.php'
+        url = "https://jirenguapi.applinzi.com/weather.php" + "?city=" + city
     }
     $.get(url)
         .done(function(data) {
