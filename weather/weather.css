@@ -37,13 +37,14 @@ html {
     display: flex;
 }
 #main-content>li {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
     padding: 5px;
     border: 1px solid rgba(255,255,255,.5);
     border-top: none;
     border-bottom: none;
+    position: relative;;
 }
 #main-content>li:first-child{
     border-left: none;
@@ -51,17 +52,23 @@ html {
 #main-content>li:last-child{
     border-right: none;
 }
-#main-content>li>p:first-of-type {
+#main-content li p:first-child {
     font-size: 20px;
 }
 
 #message>p:first-child {
     font-size: 50px;
 }
-#message>p:last-child {
-    font-weight: bold;
-}
-
 #message {
     margin: 10px;
 }
+#main-content>li .suggest {
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
