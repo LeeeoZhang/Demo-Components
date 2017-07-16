@@ -1,12 +1,4 @@
 
-let $img = $('#carousel img')
-let num = $img.length
-$img.on('load',function() {
-    num--
-    if(num === 0) {
-        callBack()
-    }
-})
 
 
 
@@ -15,7 +7,7 @@ $img.on('load',function() {
 
 
 
-function callBack() {
+
     let $imagesCarousel = $('#carousel');
     let $images = $('#carousel>li')
     let imagesNum = $images.length          //图片数量
@@ -137,7 +129,7 @@ function callBack() {
         $navs.eq(index).toggleClass('active')
         $navs.eq(index).siblings().removeClass('active')
     }
-}
+
 
 
 
