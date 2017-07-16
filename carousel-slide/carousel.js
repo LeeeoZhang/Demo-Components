@@ -1,5 +1,5 @@
 
-window.load = function() {
+window.onload = function() {
     let $imagesCarousel = $('#carousel');
     let $images = $('#carousel>li')
     let imagesNum = $images.length          //图片数量
