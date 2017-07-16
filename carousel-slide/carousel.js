@@ -1,13 +1,5 @@
 
-
-
-
-
-
-
-
-
-
+window.load = function() {
     let $imagesCarousel = $('#carousel');
     let $images = $('#carousel>li')
     let imagesNum = $images.length          //图片数量
@@ -129,6 +121,16 @@
         $navs.eq(index).toggleClass('active')
         $navs.eq(index).siblings().removeClass('active')
     }
+}
+
+
+
+
+
+
+
+
+
 
 
 
