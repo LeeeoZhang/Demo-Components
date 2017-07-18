@@ -1,4 +1,5 @@
 window.onload = function() {
+
     let $imageCarousel = $('#carousel')
     let $images = $('#carousel>li')
     let imagesNum = $images.length

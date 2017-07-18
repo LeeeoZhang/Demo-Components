@@ -64,33 +64,34 @@ window.onload = function() {
         e.preventDefault()
         let page = $(this).index()
 
-        //方法1
-        // $imagesCarousel.animate({left: -imageSize*(page + 1)},1000,function() {
-        //     canClick = true
-        //     setNav(page)
-        // })
+        // 方法1
+        $imagesCarousel.animate({left: -imageSize*(page + 1)},1000,function() {
+            canClick = true
+            index = page
+            setNav(page)
+            autoPlay()
+        })
 
 
         //方法2
-        if(page > index) {
-            next(page - index)
-            autoPlay()
-        } else if(page < index) {
-            pre(index -page)
-            autoPlay()
-        }
+        // if(page > index) {
+        //     next(page - index)
+        //     autoPlay()
+        // } else if(page < index) {
+        //     pre(index -page)
+        //     autoPlay()
+        // } else {
+        //     autoPlay()
+        // }
 
     })
 
 
 //上一页逻辑
-    function pre(length) {
-        if(length === undefined) {
-            length = 1
-        }
-        $imagesCarousel.animate({left: "+=" + imageSize*length},1000,function() {
+    function pre() {
+        $imagesCarousel.animate({left: "+=" + imageSize*1},1000,function() {
             canClick = true
-            index -= length
+            index -= 1
             if(index < 0) {
                 $imagesCarousel.css({left: -imageSize*imagesNum})
                 index = imagesNum - 1
@@ -101,13 +102,10 @@ window.onload = function() {
 
 
 //下一页逻辑
-    function next(length) {
-        if(length === undefined) {
-            length = 1
-        }
-        $imagesCarousel.animate({left: "-=" + imageSize*length},1000,function() {
+    function next() {
+        $imagesCarousel.animate({left: "-=" + imageSize*1},1000,function() {
             canClick = true
-            index += length
+            index += 1
             if(index === imagesNum) {
                 $imagesCarousel.css({left: -imageSize})
                 index = 0
