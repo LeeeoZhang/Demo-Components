@@ -1,4 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+html {
+    background: #eeee8f;
+}
 #waterfall {
-    border: 1px solid black;
     min-height: 30px;
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.new {
+    width: 250px;
+    margin: 5px;
+    border: 1px solid #aaa;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    transition: all .8s;
+}
+.new img {
+    width: 100%;
+}
+.new h4 {
+    color: #000;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 5px;
+}
+.new p {
+    font-size: 0.5em;
+    color: #555;
+    margin-top: 10px;
+}
+#load {
+    visibility: hidden;
+}
+
+.new:hover  {
+    animation: 0.8s jump 0s infinite alternate;
+}
+
+@keyframes jump{
+    0% {
+        transform: translateY(-4px);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }
