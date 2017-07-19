@@ -12,7 +12,7 @@ let canScroll = true
 function getDate(callback) {
     if(!canScroll) return
     canScroll = false       //上锁，防止获取重复数据
-    let url =  `http://platform.sina.com.cn/slide/album_tech?app_key=1271687855&num=${num}&page=${page}`
+    let url =  `https://platform.sina.com.cn/slide/album_tech?app_key=1271687855&num=${num}&page=${page}`
     $.ajax({
         url: url,
         method: 'get',
