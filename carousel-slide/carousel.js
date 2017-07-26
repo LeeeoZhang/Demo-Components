@@ -87,13 +87,6 @@ window.onload = function() {
     })
 
 
-    $imagesCarousel.on('mouseenter',function() {
-        console.log(1)
-        window.clearInterval(timeId)
-    })
-    $imagesCarousel.on('mouseleave',function() {
-        autoPlay()
-    })
 
 
 //上一页逻辑
