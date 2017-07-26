@@ -20,7 +20,7 @@ Barrel.prototype = {
         let _this = this
         for(let i=0; i<_this.page; i++) {
             let img = new Image()
-            let randomWidth = Math.floor((Math.random()*150) + 200) //图片宽度[200,350)
+            let randomWidth = Math.floor((Math.random()*150) + 200)      //图片宽度[200,350)
             let url = `https://unsplash.it/${randomWidth}/200/`
             img.onload = function() {
                 _this.renderPage(img)
