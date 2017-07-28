@@ -6,7 +6,7 @@ ul,ol {
     list-style: none;
 }
 
-#tab-container {
+.tab-container {
     width: 500px;
     margin: 0 auto;
     border: 1px solid black;
