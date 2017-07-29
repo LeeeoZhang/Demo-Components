@@ -1,0 +1,60 @@
+#click {
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.tips {
+    border: 1px solid black;
+    width: 600px;
+}
+.container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.3);
+    display: none;
+}
+.tips {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-75%);
+    background-color: #fff;
+    box-shadow:0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tips>h3 {
+    margin: 0 16px;
+    padding: 11px 0px;
+    border-bottom: .5px solid #bbb;
+}
+.tips>h3>a {
+    float: right;
+    text-decoration: none;
+    color: #bbb;
+}
+.tips>p,
+.footer {
+    margin: 0 16px;
+    padding: 11px 0px;
+}
+.footer::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.footer {
+    border-top: .5px solid #bbb;
+}
+.footer>a {
+    float: right;
+    text-decoration: none;
+    margin: 0 10px;
+    color: #bbb;
+}
+.show {
+    display: block;
+}
+.hidden {
+    display: none;
+}
