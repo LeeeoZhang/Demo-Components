@@ -104,144 +104,138 @@
 
 
 // //原生js！
+
 let Carousel = (function() {
-    function $(element, selector) {
+    function _Carousel(carouselCt,navCt,nextButton,preButton) {
+        this.imagesCarousel = carouselCt
+        this.images = this.$$(this.imagesCarousel,'li')
+        this.imagesNum = this.images.length
+        this.imageSize = this.images[0].offsetWidth
+        this.navContainer = navCt
+        this.index = 0
+        this.canClick = true
+        this.globalTimer
+        this.nextButton = nextButton
+        this.preButton = preButton
+        this.autoPlay()
+        this.bind()
+        this.imagesCarousel.appendChild(this.images[0].cloneNode(true))
+        this.imagesCarousel.insertBefore(this.images[this.imagesNum - 1].cloneNode(true), this.images[0])
+        this.imagesCarousel.style.left = `-${this.imageSize}px`
+    }
+    _Carousel.prototype.$ = (element, selector) => {
         return element.querySelector(selector)
     }
-
-    function $$(element, selector) {
+    _Carousel.prototype.$$ = (element, selector) => {
         return element.querySelectorAll(selector)
     }
-
-    let imagesCarousel = $(document, '#carousel'),
-        images = $$(imagesCarousel, 'li'),
-        imagesNum = images.length,        //图片数量
-        imageSize = images[0].offsetWidth,
-        navContainer = $(document, '#nav'),
-        index = 0,
-        canClick = true,
-        globalTimer,
-        preButton = $(document, '.button-pre'),
-        nextButton = $(document, '.button-next')
-
-    imagesCarousel.appendChild(images[0].cloneNode(true))
-    imagesCarousel.insertBefore(images[imagesNum - 1].cloneNode(true), images[0])
-    imagesCarousel.style.left = `-${imageSize}px`
-
-//下一页逻辑
-    function next(a) {
+    _Carousel.prototype.next = function(a) {
         let distance = a || 1
-        let left1 = parseFloat(imagesCarousel.style.left)   //保存移动距离
-        let left2 = parseFloat(imagesCarousel.style.left)   //保存移动前的距离
-        let timer = setInterval(function () {
-            left1 -= imageSize * distance / 80
-            imagesCarousel.style.left = left1 + 'px'
-            if (Math.abs(Math.round(parseFloat(imagesCarousel.style.left))) - Math.abs(left2) === imageSize * distance) {
+        let _this = this
+        let left1 = parseFloat(this.imagesCarousel.style.left)  //保存移动距离
+        let left2 = parseFloat(this.imagesCarousel.style.left)	//保存最初移动距离
+        let timer = setInterval(() => {
+            left1 -= _this.imageSize * distance / 80
+            _this.imagesCarousel.style.left = left1 + 'px'
+            if (Math.abs(Math.round(parseFloat(_this.imagesCarousel.style.left))) - Math.abs(left2) === _this.imageSize * distance) {
                 window.clearInterval(timer)
-                index += distance
-                if (index === imagesNum) {
-                    imagesCarousel.style.left = `-${imageSize}px`
-                    index = 0
+                _this.index += distance
+                if(_this.index === _this.imagesNum) {
+                    _this.imagesCarousel.style.left = `-${_this.imageSize}px`
+                    _this.index = 0
                 }
-                setNav(index)
-                canClick = true
+                _this.setNav(_this.index)
+                _this.canClick = true
             }
-        }, 10)
+        },10)
     }
-
-//上一页逻辑
-    function pre(a) {
+    _Carousel.prototype.pre = function(a) {
         let distance = a || 1
-        let left1 = parseFloat(imagesCarousel.style.left)
-        let left2 = parseFloat(imagesCarousel.style.left)
-        let timer = setInterval(function () {
-            left1 += imageSize * distance / 80
-            imagesCarousel.style.left = left1 + 'px'
-            if (Math.abs(left2) - Math.abs(Math.round(parseFloat(imagesCarousel.style.left))) === imageSize * distance) {
+        let _this = this
+        let left1 = parseFloat(this.imagesCarousel.style.left)  //保存移动距离
+        let left2 = parseFloat(this.imagesCarousel.style.left)	//保存最初移动距离
+        let timer = setInterval(() => {
+            left1 += _this.imageSize * distance / 80
+            _this.imagesCarousel.style.left = left1 + 'px'
+            if (Math.abs(left2) - Math.abs(Math.round(parseFloat(_this.imagesCarousel.style.left))) === _this.imageSize * distance) {
                 window.clearInterval(timer)
-                index -= distance
-                canClick = true
-                if (index < 0) {
-                    imagesCarousel.style.left = `-${imageSize * imagesNum}px`
-                    index = imagesNum - 1
+                _this.index -= distance
+                if(_this.index < 0) {
+                    _this.imagesCarousel.style.left = `-${_this.imageSize * _this.imagesNum}px`
+                    _this.index = _this.imagesNum - 1
                 }
-                setNav(index)
-                canClick = true
+                _this.setNav(_this.index)
+                _this.canClick = true
             }
-        }, 10)
+        },10)
     }
-
-//导航条设置
-    function setNav(index) {
-        let navs = $$(navContainer, 'li')
-        navs.forEach(function (item) {
+    _Carousel.prototype.setNav = function(index) {
+        let navs = this.$$(this.navContainer,'li')
+        navs.forEach((item) => {
             item.classList.remove('active')
         })
-        navs[index].classList.add('active')
+        navs[this.index].classList.add('active')
     }
-
-//自动播放
-    function autoPlay() {
-        globalTimer = setInterval(function () {
-            canClick = false
-            next()
-        }, 2500)
+    _Carousel.prototype.autoPlay = function() {
+        let _this = this
+        _this.globalTimer = setInterval(() => {
+            _this.canClick = false
+            _this.next()
+        },2500)
     }
-
-    function bind() {
-        nextButton.addEventListener('click', function (e) {
-            if (!canClick) {
+    _Carousel.prototype.bind = function() {
+        let _this = this
+        _this.nextButton.addEventListener('click', function (e) {
+            if (!_this.canClick) {
                 return
             }
-            canClick = false
-            window.clearInterval(globalTimer)
+            _this.canClick = false
+            window.clearInterval(_this.globalTimer)
             e.preventDefault()
-            next()
-            autoPlay()
+            _this.next()
+            _this.autoPlay()
         })
-
-        preButton.addEventListener('click', function (e) {
-            if (!canClick) {
+        _this.preButton.addEventListener('click', function (e) {
+            if (!_this.canClick) {
                 return
             }
-            canClick = false
-            window.clearInterval(globalTimer)
+            _this.canClick = false
+            window.clearInterval(_this.globalTimer)
             e.preventDefault()
-            pre()
-            autoPlay()
+            _this.pre()
+            _this.autoPlay()
         })
-
-        navContainer.addEventListener('click', function (e) {
-            if (!canClick) {
+        _this.navContainer.addEventListener('click', function (e) {
+            if (!_this.canClick) {
                 return
             }
-            canClick = false
-            window.clearInterval(globalTimer)
+            _this.canClick = false
+            window.clearInterval(_this.globalTimer)
             let target = e.target
             if (target.tagName.toLowerCase() === 'li') {
-                let navs = $$(this, 'li')
+                let navs = _this.$$(this, 'li')
                 let navIndex = [].indexOf.call(navs, target)
-                if (navIndex > index) {
-                    next(navIndex - index)
-                    autoPlay()
-                } else if (navIndex < index) {
-                    pre(index - navIndex)
-                    autoPlay()
+                console.log(navIndex)
+                if (navIndex > _this.index) {
+                    _this.next(navIndex - _this.index)
+                    _this.autoPlay()
+                } else if (navIndex < _this.index) {
+                    _this.pre(_this.index - navIndex)
+                    _this.autoPlay()
                 } else {
-                    autoPlay()
+                    _this.autoPlay()
                 }
             }
-
         })
     }
-
     return {
-        init: function() {
-            autoPlay()
-            bind()
+        init: function(carouselCt,navCt,nextButton,preButton) {
+            new _Carousel(carouselCt,navCt,nextButton,preButton)
         }
     }
 })()
-
-Carousel.init()
-
+let carouselCt = document.querySelector('#carousel')
+let navCt = document.querySelector('#nav')
+let preButton = document.querySelector('.button-pre')
+let nextButton = document.querySelector('.button-next')
+Carousel.init(carouselCt,navCt,nextButton,preButton)
