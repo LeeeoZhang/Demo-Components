@@ -25,9 +25,8 @@ body,p,h1,h2,h3,h4,h5,h6,ol,ul,li {
 }
 
 /*common*/
-.layout {
-	width: 1200px;
-	margin: 0 auto;
+body {
+	min-width: 1280px;
 }
 .clearfix:after,
 #clearfix:after {
@@ -42,28 +41,81 @@ a {
 	text-decoration: none;
 }
 .icon {
-	font-family:"iconfont" !important;
-	font-size:30px;font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-    color: #777;
+	width: 1em; height: 1em;
+	vertical-align: -0.15em;
+	fill: #fff;
+	overflow: hidden;
 }
 
 /*page*/
-body {
-	min-width: 1300px;
-}
 #header {
-	background-image: url(images/header_min.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 
+	width: 1280px;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+}
+#header .carousel{
+	position: absolute;
+	display: flex;
+}
+#header .carousel img{
+	width: 1280px;
+	height: 100vh;
+	opacity: .75;
+}
+#header .button {
+	position: absolute;
+	font-size: 7em;
+	top: 50%;
+	transform: translateY(-50%);
+}
+#header .button-pre {
+	left: 30px;
+}
+#header .button-next {
+	right: 30px;
+}
+#header .nav {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	position: absolute;
+	bottom: 2em;
+}
+#header .nav>li {
+	margin: 0 10px;
+	opacity: .5;
+}
+#header .nav .active {
+	opacity: 1;
+}
+#header>.play {
+	text-align: center;
+	color: #fed136;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+#header>.play>p {
+	font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: 700;
+	font-size: 75px;
+	line-height: 75px;
+	margin-bottom: 50px;
+}
+#header>.play>p:first-child {
+	font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-style: italic;
+	font-size: 40px;
+	line-height: 40px;
+	margin-bottom: 25px;
 }
 #nav {
 	position: fixed;
 	top: 0;
 	width: 100%;
+	min-width: 800px;
 	padding: 25px 0;
 	background-color: rgba(0,0,0,0.5);
 	z-index: 1;
@@ -90,26 +142,6 @@ body {
 	font-weight: bold;
 	font-size: 32px;
 	font-family: "Kaushan Script","Helveticeue",Helvetica,Arial,cursive,sans-serif;
-}
-#header>.play {
-	text-align: center;
-	color: #fed136;
-	padding-top: 450px;
-	padding-bottom: 216px;
-}
-#header>.play>p {
-	font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-weight: 700;
-    font-size: 75px;
-    line-height: 75px;
-    margin-bottom: 50px;
-}
-#header>.play>p:first-child {
-	font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-style: italic;
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 25px;
 }
 #header>.play>.play_btn,
 #cinecism>.layout .sub {
@@ -166,18 +198,20 @@ body {
     color: #777;
     letter-spacing: 1px;
 }
-#trailer>.layout>.video>div,
-#still>.layout>.post>div {
-	float: left;
-	display: inline-block;
-	margin-left: 10px;
+#trailer>.layout>.video {
+	width: 1200px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
 }
-#trailer>.layout>.video,
 #still>.layout>.post {
-	margin-left: -30px;
+	width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 auto;
 }
-#trailer>.layout>.video p,
-#still>.layout>.post p {
+#trailer>.layout>.video p{
 	font-size: 20px;
 	font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
 	margin: 30px 0;
@@ -223,20 +257,23 @@ body {
 	height: 100%;
 	z-index: -1;
 }
-#role>.layout .introduce {
+#role>.layout>ul>li:nth-child(odd) .introduce {
 	float: left;
 	margin-right: 100px;
 	position: absolute;
 	right: 50%;
 	top: 0;
-	width: 555px;
 	text-align: right;
 	vertical-align: middle;
 }
 #role>.layout>ul>li:nth-child(even) .introduce {
+	float: left;
 	margin-left: 100px;
+	position: absolute;
 	left: 50%;
+	top: 0;
 	text-align: left;
+	vertical-align: middle;
 }
 #role>.layout>ul p,
 #cast>.layout>.act-inc p {
@@ -290,6 +327,7 @@ body {
 }
 #cinecism {
 	background-color: #444;
+	padding: 0 30px;
 }
 #cinecism .username,
  #cinecism .title {
