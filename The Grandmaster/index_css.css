@@ -118,7 +118,8 @@ a {
 	width: 100%;
 	min-width: 800px;
 	padding: 25px 0;
-	background-color: rgba(0,0,0,0.5);
+	background: black;
+	opacity: .5;
 	z-index: 1;
 }
 #nav ul {
@@ -402,4 +403,32 @@ a {
 }
 #footer a {
 	color: #fed136;
+}
+#gotop {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	width: 100px;
+	line-height: 100px;
+	font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	color: #fff;
+	background-color: #fed136;
+	border: 1px solid #fec503;
+	cursor: pointer;
+	opacity: .5;
+	text-align: center;
+	border-radius: 50%;
+}
+#gotop:hover {
+	animation: 2s gotop 0s infinite alternate;
+}
+@keyframes gotop{
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100%{
+		transform: rotateZ(360deg);
+	}
 }
