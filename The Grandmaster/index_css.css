@@ -49,7 +49,7 @@ a {
 
 /*page*/
 #header {
-	width: 1280px;
+	min-width: 1280px;
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
@@ -59,7 +59,7 @@ a {
 	display: flex;
 }
 #header .carousel img{
-	width: 1280px;
+	min-width: 1280px;
 	height: 100vh;
 	opacity: .75;
 }
