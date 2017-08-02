@@ -6,7 +6,7 @@ let Carousel = (function() {
         this.$navCt = $navCt
         this.$navs = $navCt.find('li')
         this.$images = this.$imagesCarousel.find('li')
-        this.imagesNum = this.$images.length          //图片数量
+        this.imagesNum = this.$images.length
         this.imageSize = this.$images.width()
         this.canClick = true
         this.index = 0
@@ -15,13 +15,11 @@ let Carousel = (function() {
         this.autoPlay()
         this.bind()
     }
-    //首尾图片插入
     _Carousel.prototype.copyPicture = function() {
         this.$images.first().clone().appendTo(this.$imagesCarousel)
         this.$images.last().clone().prependTo(this.$imagesCarousel)
         this.$imagesCarousel.css({left: -(this.imageSize)})
     }
-    //自动播放
     _Carousel.prototype.autoPlay = function () {
         let _this = this
         _this.timeId =  setInterval(function() {
@@ -29,7 +27,6 @@ let Carousel = (function() {
             _this.next()
         },2500)
     }
-    //上一页逻辑
     _Carousel.prototype.pre = function() {
         let _this = this
         _this.$imagesCarousel.animate({left: "+=" + _this.imageSize*1},1000,function() {
@@ -42,7 +39,6 @@ let Carousel = (function() {
             _this.canClick = true
         })
     }
-    //下一页逻辑
     _Carousel.prototype.next = function() {
         let _this = this
         _this.$imagesCarousel.animate({left: "-=" + _this.imageSize*1},1000,function() {
@@ -61,7 +57,6 @@ let Carousel = (function() {
     }
     _Carousel.prototype.bind = function() {
         let _this = this
-        //上一页事件
         _this.$preButton.on('click', function (e) {
             if(!_this.canClick) {
                 return
@@ -72,7 +67,6 @@ let Carousel = (function() {
             _this.pre()
             _this.autoPlay()
         })
-        //下一页事件
         _this.$nextButton.on('click', function (e) {
             if (!_this.canClick) {
                 return
@@ -91,9 +85,7 @@ let Carousel = (function() {
             window.clearInterval(_this.timeId)
             e.preventDefault()
             let page = $(this).index()
-
-            // 方法1
-            $imagesCarousel.animate({left: -(_this.imageSize) * (page + 1)}, 1000, function () {
+            _this.$imagesCarousel.animate({left: -(_this.imageSize) * (page + 1)}, 1000, function () {
                 _this.index = page
                 _this.setNav(page)
                 _this.autoPlay()
@@ -107,4 +99,6 @@ let Carousel = (function() {
         }
     }
 })()
-Carousel.init($('#header .carousel'),$('#header .button-pre'),$('#header .button-next'),$('#header .nav'))
+window.onload = function() {
+    Carousel.init($('#header .carousel'),$('#header .button-pre'),$('#header .button-next'),$('#header .nav'))
+}

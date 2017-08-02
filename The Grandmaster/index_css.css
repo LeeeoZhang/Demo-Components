@@ -85,6 +85,7 @@ a {
 #header .nav>li {
 	margin: 0 10px;
 	opacity: .5;
+	cursor: pointer;
 }
 #header .nav .active {
 	opacity: 1;
@@ -144,7 +145,8 @@ a {
 	font-family: "Kaushan Script","Helveticeue",Helvetica,Arial,cursive,sans-serif;
 }
 #header>.play>.play_btn,
-#cinecism>.layout .sub {
+#cinecism>.layout .sub,
+#still .load {
 	display: inline-block;
 	padding: 20px 40px;
 	font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -154,8 +156,10 @@ a {
 	background-color: #fed136;
 	border: 1px solid #fec503;
 	border-radius: 5px;
+	cursor: pointer;
 }
-#header>.play>.play_btn:hover {
+#header>.play>.play_btn:hover,
+#still .load:hover {
 	background-color: #fec503;
 }
 #trailer,
@@ -204,37 +208,49 @@ a {
 	justify-content: space-between;
 	margin: 0 auto;
 }
-#still>.layout>.post {
-	width: 1200px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin: 0 auto;
-}
 #trailer>.layout>.video p{
 	font-size: 20px;
 	font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
 	margin: 30px 0;
 	color: #444;
 }
-#still>.layout>.post>div {
+#still>.layout>.post {
+	width: 1200px;
+	margin: 0 auto;
 	position: relative;
 }
-#still .icon {
-	width: 400px;
-	height: 230px;
+#still>.layout>.post img {
+	vertical-align: middle;
+}
+#still>.layout>.post>div {
 	position: absolute;
-	line-height: 230px;
-	background-color: #fed136;
-	opacity: 0;
-	cursor:pointer;
+	margin: 5px;
+	width: 380px;
+}
+#still .iconCt {
+	position: absolute;
+	background: #fed136;
 	left: 0;
 	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 3;
+	opacity: 0;
+	cursor:pointer;
 }
-#still .icon:hover {
-	opacity: 0.7;
+#still .iconCt:hover {
+	opacity: .5;
 	color: #fff;
+}
+#still .icon {
 	font-size: 100px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+#still .load {
+	margin-top: 30px;
 }
 #role>.layout>ul img,
 #cast>.layout img {
@@ -308,6 +324,10 @@ a {
 	display: inline-block;
 	margin-left: 10px;
 }
+#cast .act-inc .icon,
+#footer .icon {
+	font-size: 30px;
+}
 #cast .act-inc a:hover,
 #footer a:hover {
 	opacity: 0.7;
@@ -368,14 +388,17 @@ a {
 #cinecism>.layout .sub:hover {
 	background-color: #fec503;
 }
-#footer p {
-	width: 400px;
-	float: left;
-	line-height: 40px;
-	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-}
 #footer {
 	padding: 30px 0;
+}
+#footer .layout {
+	display: flex;
+	justify-content: center;
+}
+#footer p {
+	line-height: 40px;
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin: 0 50px;
 }
 #footer a {
 	color: #fed136;

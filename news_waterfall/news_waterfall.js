@@ -57,9 +57,7 @@ let Explosure = (function() {
         let marginHeight = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom'])
         let marginWidth = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom'])
         let nodeHeight = Math.ceil(node.offsetHeight + marginHeight)
-        console.log(nodeHeight)
         let nodeWidth = Math.ceil(node.offsetWidth + marginWidth)
-        console.log(nodeWidth)
         let minColumnHeight = Math.min.apply(null,this.columnHeights)
         let minColumnHeightIndex = this.columnHeights.indexOf(minColumnHeight)
         node.style.left = `${minColumnHeightIndex * nodeWidth}px`
