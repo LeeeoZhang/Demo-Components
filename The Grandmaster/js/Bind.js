@@ -1,18 +1,18 @@
 define(['jquery'],function($){
-    let BindEvent = (function() {
-        function _BindEVent($goTopButton,$nav) {
+    let Bind = (function() {
+        function _Bind($goTopButton,$nav) {
             this.$goTopButton = $goTopButton
             this.$nav = $nav
             this.canScroll = true
             this.goTopEvent()
             this.windowScrollEvent()
         }
-        _BindEVent.prototype.goTopEvent = function() {
+        _Bind.prototype.goTopEvent = function() {
             this.$goTopButton.click(function() {
                 $("html, body").animate({ scrollTop: 0 }, "slow");
             })
         }
-        _BindEvent.prototype.windowScrollEvent = function() {
+        _Bind.prototype.windowScrollEvent = function() {
             let _this = this
             $(window).on('scroll',function() {
                 if(!_this.canScroll) {
@@ -40,9 +40,9 @@ define(['jquery'],function($){
         }
         return {
             init: function($goTopButton,$nav) {
-                new _BindEVent($goTopButton,$nav)
+                new _Bind($goTopButton,$nav)
             }
         }
     })()
-    return BindEvent
+    return Bind
 })
