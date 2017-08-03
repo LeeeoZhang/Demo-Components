@@ -1,5 +1,4 @@
-define(['jquery','bind','Carousel','waterFall'],function($,Bind,Carousel,Waterfall) {
-    window.onload = function() {
+define(['jquery','Bind','Carousel','waterFall'],function($,Bind,Carousel,Waterfall) {
         let $goTopButton = $('#gotop')
         let $nav = $('#nav')
         let $waterFallCt = $('#still .post')
@@ -7,5 +6,4 @@ define(['jquery','bind','Carousel','waterFall'],function($,Bind,Carousel,Waterfa
         Bind.init($goTopButton, $nav)
         Waterfall.init($waterFallCt, $loadButtom)
         Carousel.init($('#header .carousel'), $('#header .button-pre'), $('#header .button-next'), $('#header .nav'))
-    }
 })

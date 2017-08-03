@@ -1,4 +1,3 @@
-
 define(['jquery'],function($){
     let Bind = (function() {
         function _Bind($goTopButton,$nav) {
