@@ -49,17 +49,18 @@ a {
 
 /*page*/
 #header {
-	min-width: 1280px;
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
 }
 #header .carousel{
+	width: 100vw;
+	height: 100vh;
 	position: absolute;
 	display: flex;
 }
 #header .carousel img{
-	min-width: 1280px;
+	width: 100vw;
 	height: 100vh;
 	opacity: .75;
 }
@@ -118,8 +119,8 @@ a {
 	width: 100%;
 	min-width: 800px;
 	padding: 25px 0;
-	background: black;
 	opacity: .5;
+	background: black;
 	z-index: 1;
 }
 #nav ul {
@@ -314,11 +315,12 @@ a {
 }
 #role>.layout>ul li:last-child {
 	padding: 0;
-}
+}#cast .act {
+	display: flex;
+	justify-content: center;
+ }
 #cast .act-inc {
 	width: 360px;
-	float: left;
-	margin-left: 40px;
 }
 #cast .act-inc a,
 #footer a {
@@ -341,6 +343,9 @@ a {
 	width: 100%;
 	float: left;
 	margin-top: 45px; 
+}
+#cast .layout {
+	margin: 0 auto;
 }
 #ad a {
 	display: inline-block;
