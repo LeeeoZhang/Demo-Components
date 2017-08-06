@@ -72,5 +72,7 @@ define(['jquery'],function($) {
             }
         }
     })()
-    return Waterfall
+    return {
+        Waterfall: Waterfall
+    }
 })
