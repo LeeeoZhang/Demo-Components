@@ -1,8 +1,12 @@
 {
   "name": "weather_leo",
-  "version": "1.0.0",
+  "version": "2.1.2",
   "description": "Check weather",
   "main": "main.js",
+  "bin": {
+    "tianqi": "main.js",
+    "weather": "main.js"
+  },
   "dependencies": {
     "request": "^2.81.0"
   },
