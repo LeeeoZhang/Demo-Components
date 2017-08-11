@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Note of Self</title>
+	<link rel="stylesheet" href="./index.css">
+</head>
+<body>
+	<form action="">
+		<label for="note_color">Color: </label>
+		<select name="note_color" id="note_color">
+			<option value="LightGoldenRodYellow">yellow</option>
+			<option value="PaleGreen">green</option>
+			<option value="LightPink">pink</option>
+			<option value="LightBlue">blue</option>
+		</select>
+		<label for="note_text">Text: </label>
+		<input type="text" id="note_text">
+		<input type="button" id="add_button" value="Add Sticky Note to Self">
+	</form>
+	<ul id="stickies"></ul>
+	<script>
+		window.onload = init
+		function init() {
+			var button = document.getElementById('add_button')
+			button.onclick = createSticky
+			var stickiesArray = getStickArray()
+			for(var i = 0; i<stickiesArray.length; i++) {
+				var key = stickiesArray[i]
+				console.log(localStorage[key])
+				var stickyObj = JSON.parse(localStorage[key])
+				addStickyToDom(key,stickyObj)
+			}
+		}
+
+		function addStickyToDom(key,stickyObj) {
+			var stickies = document.getElementById('stickies')
+			var sticky = document.createElement('li')
+			sticky.id = key
+			sticky.style.backgroundColor = stickyObj.color
+			var span = document.createElement('span')
+			span.setAttribute('class','sticky')
+			span.innerHTML = stickyObj.value
+			sticky.appendChild(span)
+			stickies.appendChild(sticky)
+			sticky.onclick = deleteSticky
+		}
+
+		function createSticky() {
+			var stickiesArray = getStickArray()
+			var value = document.getElementById('note_text').value
+			var currenTime = new Date()
+			var colorSelectObj = document.getElementById('note_color')
+			var index = colorSelectObj.selectedIndex
+			var color = colorSelectObj[index].value
+			var key = 'sticky_' + currenTime.getTime()
+			var stickyObj = {
+				"value": value,
+				"color": color
+			}
+			localStorage.setItem(key,JSON.stringify(stickyObj))
+			stickiesArray.push(key)
+			localStorage.setItem('stickiesArray',JSON.stringify(stickiesArray))
+			addStickyToDom(key,stickyObj)
+		}
+		function getStickArray() {
+			var stickiesArray = JSON.parse(localStorage.getItem('stickiesArray')) || []
+			localStorage.setItem('stickiesArray',JSON.stringify(stickiesArray))
+			return stickiesArray
+		}
+		function deleteSticky(e) {
+			var key = e.target.id
+			var stickiesArray = getStickArray()
+			if(e.target.tagName.toLowerCase() === 'span') {
+				key = e.target.parentNode.id
+			}
+			localStorage.removeItem(key)
+			for(var i = 0; i<stickiesArray.length; i++) {
+				if(key === stickiesArray[i]) {
+					stickiesArray.splice(i,1)
+				}
+			}
+			localStorage.setItem('stickiesArray',JSON.stringify(stickiesArray))
+			deleteDom(key)
+		}
+		function deleteDom(key) {
+			var sticky = document.getElementById(key)
+			sticky.parentNode.removeChild(sticky)
+		}
+	</script>
+</body>
+</html>
