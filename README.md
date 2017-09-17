@@ -36,3 +36,7 @@
 
 **工具库（进制转换等等）**
 [code](https://github.com/LeeeoZhang/Demo-Components/tree/master/Tool)
+
+**fullpage组件**
+[Preview](https://leeeozhang.github.io/Demo-Components/fullpage/)
+[code](https://github.com/LeeeoZhang/Demo-Components/tree/master/fullpage)
