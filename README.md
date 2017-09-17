@@ -24,7 +24,7 @@
 [code](https://github.com/LeeeoZhang/Demo-Components/tree/master/weather_npm)
 
 **乞丐便利条**
-[Prebview](https://leeeozhang.github.io/Demo-Components/easy_sticky/index.html)
+[Preview](https://leeeozhang.github.io/Demo-Components/easy_sticky/index.html)
 
 **css皮卡丘**
 [Preview](https://leeeozhang.github.io/Demo-Components/pikachu/index.html)/
