@@ -16,7 +16,7 @@
 **DOM-Lib**
 [code](https://github.com/LeeeoZhang/Demo-Components/tree/master/DOM-lib)
 
-**BOM-lib**
+**BOM-Lib**
 [code](https://github.com/LeeeoZhang/Demo-Components/tree/master/BOM-lib)
 
 **npm天气小工具**
