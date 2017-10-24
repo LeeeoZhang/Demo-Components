@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var deviceWidth = parseInt(window.screen.width)
+        var deviceScale = deviceWidth / 640
+        var ua = navigator.userAgent
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1)
+            if (version > 2.3) {
+                document.write('<meta name="viewport" content="width=640,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">')
+            } else {
+                document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />')
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no">')
+        }
+    </script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body>
+<div id="wrap">
+    <div class="page1-wrap">
+        <div class="main-wrap-bg">
+            <div class="info">
+                <p><img src="./images/index_01.png" alt=""></p>
+                <p><img src="./images/index_02.png" alt=""></p>
+                <p><img src="./images/index_03.png" alt=""></p>
+                <p><img src="./images/index_04.png" alt=""></p>
+                <p><img src="./images/index_05.png" alt=""></p>
+            </div>
+        </div>
+        <div class="transition-images">
+            <img src="./images/transition.jpg" alt="">
+            <img src="./images/transition.jpg" alt="">
+            <img src="./images/transition.jpg" alt="">
+            <img src="./images/transition.jpg" alt="">
+        </div>
+    </div>
+</div>
+<script src="./dist/bundle.js"></script>
+</body>
+</html>
