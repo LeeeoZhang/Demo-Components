@@ -8,11 +8,11 @@ html,body {width: 100%; height: 100%}
   .page1-wrap {
     width: 100%;
     height: 500%;
-    transition: transform 2s ease;
+    transition: all 2s ease;
     .main-wrap-bg {
       width: 100%;
       height: 20%;
-      background: url('images/bg.jpg') 0 0/cover no-repeat;
+      background: url('./images/bg.jpg') 0 0/cover no-repeat;
       position: relative;
       .info {
         position: absolute;
@@ -25,6 +25,38 @@ html,body {width: 100%; height: 100%}
       img {
         vertical-align: middle;
       }
+    }
+  }
+
+  .page2-wrap {
+    width: 100%;
+    height: 100%;
+    background: url('./images/bg2.png') 0 0/cover no-repeat;
+    position: relative;
+    img[alt=pic] {
+      position: absolute;
+      right:0;
+      top: 70px;
+    }
+    img[alt=tips] {
+      position: absolute;
+      left: 61px;
+      top: 216px;
+      z-index: 5;
+    }
+    img[alt=center] {
+      position: absolute;
+      left: 42px;
+      top: 51px;
+    }
+    .form-info {
+      position: absolute;
+      left: 64px;
+      bottom: 205px;
+      width: 512px;
+      height: 277px;
+      background: url('./images/form_text.png') 0 0 no-repeat;
+      background-size: cover;
     }
   }
 }

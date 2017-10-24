@@ -21,12 +21,12 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader?minimize=true', 'sass-loader', 'autoprefixer-loader']
+                    use: ['css-loader?minimize=false', 'sass-loader', 'autoprefixer-loader']
                 })
 
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg|otf)$/,
+                test: /\.(|woff|woff2|eot|ttf||otf)$/,
                 use: [
                     'url-loader?limit=100000'
                 ]
@@ -37,9 +37,9 @@ module.exports = {
                 loader: 'babel-loader?presets[]=es2015'
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg)$/,
                 use: [
-                    'url-loader?limit=1024&name=font/[name].[ext]?[hash:5]'
+                    'url-loader?limit=8192'
                 ]
             }
         ]
