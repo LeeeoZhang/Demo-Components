@@ -211,6 +211,13 @@ html, body {
         position: absolute;
         right: 310px;
         bottom: 156px; }
+  #wrap .bgm {
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    border: 1px solid; }
 
 .hide {
   display: none; }

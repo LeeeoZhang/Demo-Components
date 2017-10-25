@@ -113,11 +113,12 @@ $preLoadCtn = (0, _jquery2.default)('.preload'),
 (0, _jqueryImgpreload2.default)(_jquery2.default); //启用插件
 $allImages.imgpreload({
     each: function each(a) {
-        percent = a.length / $allImages.length * 100;
+        percent = Math.round(a.length / $allImages.length * 100);
         $preLoadCtn.text(percent + '%');
         if (percent === 100) {
             $preLoadCtn.css({ display: 'none' });
             $page1Wrap.removeClass('hide');
+            (0, _jquery2.default)('.bgm').append('<audio autoplay loop src=""><audio>');
         }
     }
 });
@@ -202,6 +203,7 @@ function touchStart($event) {
         $page3Wrap.find('.name').text(name + gender);
     });
 
+    //监听输入事件,获取信息
     $nameInput.on('input', function ($event) {
         name = (0, _jquery2.default)(this).val();
     });
@@ -287,28 +289,52 @@ function touchStart($event) {
     function page5TouchEnd($event) {
         moveY = $event.originalEvent.changedTouches[0].pageY - startY;
         if (moveY > 50) {
-            $page5Wrap.css({ transform: 'translateY(-200%)' });
-            $page5Wrap.on('transitionend', function fn() {
+            new Promise(function (resolve, reject) {
+                $page5Wrap.css({ transform: 'translateY(-200%)' });
+                $page5Wrap.on('transitionend', function fn() {
+                    $page5Wrap.off('transitionend', fn);
+                    resolve();
+                });
+            }).then(function () {
                 $page5Wrap.find('p').addClass('hide');
                 $page5Wrap.removeClass('action');
-                $page5Wrap.off('transitionend', fn);
             });
+            // $page5Wrap.css({transform: `translateY(-200%)`})
+            // $page5Wrap.on('transitionend',function fn(){
+            //     $page5Wrap.find('p').addClass('hide')
+            //     $page5Wrap.removeClass('action')
+            //     $page5Wrap.off('transitionend',fn)
+            // })
         }
         if (moveY < -50) {
-            $page6Wrap.css({ transform: 'translateY(-400%)' });
-            $page6Wrap.on('transitionend', function fn() {
-
+            new Promise(function (resolve, reject) {
+                $page6Wrap.css({ transform: 'translateY(-400%)' });
+                $page6Wrap.on('transitionend', function fn() {
+                    $page6Wrap.off('transitionend', fn);
+                    resolve();
+                });
+            }).then(function () {
                 //page6添加动画
                 $page6Wrap.find('p').removeClass('hide');
                 $page6Wrap.addClass('action');
-                $page6Wrap.off('transitionend', fn);
-
                 //page5去除动画
                 $page5Wrap.find('p').addClass('hide');
                 $page5Wrap.removeClass('action');
-
-                $page6Wrap.off('transitionend', fn);
             });
+            // $page6Wrap.css({transform: `translateY(-400%)`})
+            // $page6Wrap.on('transitionend',function fn(){
+
+            //     //page6添加动画
+            //     $page6Wrap.find('p').removeClass('hide')
+            //     $page6Wrap.addClass('action')
+            //     $page6Wrap.off('transitionend',fn)
+
+            //     //page5去除动画
+            //     $page5Wrap.find('p').addClass('hide')
+            //     $page5Wrap.removeClass('action')
+
+            //     $page6Wrap.off('transitionend',fn)
+            // })
         }
     }
 
@@ -328,19 +354,34 @@ function touchStart($event) {
     function page6TouchEnd($event) {
         moveY = $event.originalEvent.changedTouches[0].pageY - startY;
         if (moveY > 50) {
-            $page6Wrap.css({ transform: 'translateY(-300%)' });
-            $page6Wrap.on('transitionend', function fn() {
-
+            new Promise(function (resolve, reject) {
+                $page6Wrap.css({ transform: 'translateY(-300%)' });
+                $page6Wrap.on('transitionend', function fn() {
+                    //解除事件
+                    $page6Wrap.off('transitionend', fn);
+                    resolve();
+                });
+            }).then(function () {
                 //page5添加动画
                 $page5Wrap.find('p').removeClass('hide');
                 $page5Wrap.addClass('action');
-
                 //page6去除动画
                 $page6Wrap.find('p').addClass('hide');
                 $page6Wrap.removeClass('action');
-                //解除事件
-                $page6Wrap.off('transitionend', fn);
             });
+            // $page6Wrap.css({transform: `translateY(-300%)`})
+            // $page6Wrap.on('transitionend',function fn(){
+            //
+            //     //page5添加动画
+            //     $page5Wrap.find('p').removeClass('hide')
+            //     $page5Wrap.addClass('action')
+            //
+            //     //page6去除动画
+            //     $page6Wrap.find('p').addClass('hide')
+            //     $page6Wrap.removeClass('action')
+            //     //解除事件
+            //     $page6Wrap.off('transitionend',fn)
+            // })
         }
     }
 
