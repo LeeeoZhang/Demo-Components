@@ -25,7 +25,8 @@
 </head>
 <body>
 <div id="wrap">
-    <div class="page1-wrap" >
+    <div class="preload"></div>
+    <div class="page1-wrap hide">
         <div class="main-wrap-bg">
             <div class="info">
                 <p><img src="./images/index_01.png" alt=""></p>
@@ -42,21 +43,59 @@
             <img src="./images/transition.jpg" alt="">
         </div>
     </div>
-    <div class="page2-wrap">
+    <div class="page2-wrap hide">
         <img src="./images/main.png" alt="tips">
         <img src="./images/icon.png" alt="pic">
         <img src="./images/logo2.png" alt="center">
         <div class="form-info">
             <input type="text" class="name">
             <div class="radio-box">
-                <input type="radio" value="先生" name="gender" id="male">
+                <input type="radio" value="先生/Mr" name="gender" id="male">
                 <label for="male">先生/Mr</label>
-                <input type="radio" value="女士" name="gender" id="female">
+                <input type="radio" value="女士/Ms" name="gender" id="female">
                 <label for="female">女士/Ms</label>
             </div>
             <input type="text" class="tel">
             <input type="text" class="card">
         </div>
+        <img src="./images/chuxi.png" alt="chuxi" class="join-btn">
+    </div style="display: none">
+    <div class="page3-wrap">
+        <p class="title1"><img src="./images/s12x.png" alt=""></p>
+        <p class="title2"><img src="./images/s122x.png" alt=""></p>
+        <div class="content">
+            <span class="name">尊敬的</span>
+            <img src="./images/s132x.png" alt="">
+        </div>
+        <p class="pic"><img src="./images/s142x.png" alt=""></p>
+    </div>
+    <div class="page4-wrap">
+        <p class="title"><img src="./images/m1.png" alt=""></p>
+        <div class="content">
+            <img src="./images/m2.png" alt="">
+        </div>
+        <div class="animate-wrap">
+            <p><img src="./images/s1.png" alt="qiu"></p>
+            <p><img src="./images/s1.png" alt="qiu"></p>
+            <p><img src="./images/s1.png" alt="qiu"></p>
+            <p><img src="./images/s1.png" alt="qiu"></p>
+        </div>
+    </div>
+    <div class="page5-wrap">
+        <p class="awrning-title hide"><img src="./images/result1_tit.png" alt=""></p>
+        <p class="warning1 hide"><img src="./images/result1_1.png" alt="warning1"></p>
+        <p class="warning2 hide"><img src="./images/result1_2.png" alt="warning2"></p>
+        <p class="more hide"><img src="./images/result1_3.png" alt="more"></p>
+        <p class="qrcode hide"><img src="./images/code2.png" alt="qrcode"></p>
+    </div>
+    <div class="page6-wrap">
+        <p class="name hide"><img src="./images/result2_1.png" alt="name"></p>
+        <p class="email hide"><img src="./images/result2_2.png" alt="email"></p>
+        <p class="tel hide"><img src="./images/result2_3.png" alt="tel"></p>
+        <p class="map hide">
+            <img src="./images/tip.png" alt="finger">
+            <img src="./images/result2_4.png" alt="map">
+        </p>
     </div>
 </div>
 <script src="./dist/bundle.js"></script>

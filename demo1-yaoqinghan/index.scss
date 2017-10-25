@@ -1,7 +1,24 @@
-* {margin: 0; padding: 0}
-html,body {width: 100%; height: 100%}
+* {
+  margin: 0;
+  padding: 0
+}
+
+html, body {
+  width: 100%;
+  height: 100%
+}
 
 #wrap {
+  .preload {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+  }
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -35,7 +52,7 @@ html,body {width: 100%; height: 100%}
     position: relative;
     img[alt=pic] {
       position: absolute;
-      right:0;
+      right: 0;
       top: 70px;
     }
     img[alt=tips] {
@@ -49,6 +66,11 @@ html,body {width: 100%; height: 100%}
       left: 42px;
       top: 51px;
     }
+    img[alt=chuxi] {
+      position: absolute;
+      left: 170px;
+      bottom: 51px;
+    }
     .form-info {
       position: absolute;
       left: 64px;
@@ -57,6 +79,185 @@ html,body {width: 100%; height: 100%}
       height: 277px;
       background: url('./images/form_text.png') 0 0 no-repeat;
       background-size: cover;
+      input {
+        //border: 1px solid;
+        width: 400px;
+        height: 26px;
+        font-size: 26px;
+        background: transparent;
+        outline: none;
+        border: none;
+      }
+      .radio-box {
+        font-size: 23px;
+        margin: 46px 0 0 90px;
+        input {
+          width: 30px;
+          height: 30px;
+          -webkit-appearance: none;
+          background: url('./images/rad.png') 0 0/cover no-repeat;
+          &:checked {
+            background-position: 100% 0;
+          }
+        }
+        label {
+          vertical-align: top;
+        }
+      }
+      .name {
+        margin-left: 90px;
+      }
+      .tel {
+        margin-left: 90px;
+        margin-top: 41px;
+      }
+      .card {
+        margin-left: 145px;
+        margin-top: 41px;
+      }
     }
   }
+
+  .page3-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    padding-top: 41px;
+    box-sizing: border-box;
+    background: url('./images/bg3.png') 0 0/cover no-repeat;
+    transition: all .5s ease;
+    z-index: 10;
+    .title2 {
+      margin-top: 41px;
+    }
+    .content {
+      position: relative;
+      .name {
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        top: 30px;
+        left: 65px;
+      }
+    }
+    .pic {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      img {
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  .page4-wrap {
+    width: 100%;
+    height: 100%;
+    background: url('./images/scroll_bg.png') 0 0/cover no-repeat;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all .5s ease;
+    z-index: 30;
+    position: relative;
+    transform: translateY(-100%);
+    .title {
+      width: 100%;
+      padding-top: 31px;
+    }
+    .content {
+      margin-top: 40px;
+      padding-left: 100px;
+      overflow: hidden;
+      img {
+        transition: all .5s ease;
+      }
+    }
+    .animate-wrap {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      p {
+        width: 40px;
+        position: absolute;
+        img {
+          width: 100%;
+        }
+        &:nth-child(1) {
+          top: 55px;
+          left: 50px;
+        }
+        &:nth-child(2) {
+          top: 200px;
+          right: 50px;
+        }
+        &:nth-child(3) {
+          top: 600px;
+          left: 50px;
+        }
+        &:nth-child(4) {
+          top: 500px;
+          right: 40px;
+        }
+      }
+    }
+  }
+  .page5-wrap {
+    width: 100%;
+    height: 100%;
+    background: url('./images/11.jpg') 0 0/cover no-repeat;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all .5s ease;
+    z-index: 35;
+    position: relative;
+    padding-top: 50px;
+    transform: translateY(-200%);
+    .warning1 {
+      margin-top: 50px;
+    }
+    .warning2 {
+      margin-top: 30px;
+    }
+    .more {
+      width: 100%;
+      position: absolute;
+      bottom: 60px;
+    }
+    .qrcode {
+      width: 100%;
+      position: absolute;
+      bottom: -25px;
+    }
+  }
+
+  .page6-wrap {
+    width: 100%;
+    height: 100%;
+    background: url('./images/11.jpg') 0 0/cover no-repeat;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all .5s ease;
+    z-index: 40;
+    position: relative;
+    padding-top: 50px;
+    transform: translateY(-300%);
+    p {
+      margin-top: 50px;
+    }
+    .map {
+      position: relative;
+      img[alt=finger] {
+        position: absolute;
+        right: 310px;
+        bottom: 156px;
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
 }

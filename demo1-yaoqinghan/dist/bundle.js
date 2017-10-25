@@ -63,8 +63,9 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78,49 +79,114 @@ var _jquery = __webpack_require__(3);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _jqueryImgpreload = __webpack_require__(16);
+
+var _jqueryImgpreload2 = _interopRequireDefault(_jqueryImgpreload);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var cliHeight = window.innerHeight,
+    $allImages = (0, _jquery2.default)('#wrap img'),
     startY = void 0,
     moveY = void 0,
+    isAnimate = false,
+    //动画锁
+$preLoadCtn = (0, _jquery2.default)('.preload'),
     $page1Wrap = (0, _jquery2.default)('.page1-wrap'),
-    $page2Wrap = (0, _jquery2.default)('.page2-wrap');
+    $page2Wrap = (0, _jquery2.default)('.page2-wrap'),
+    $page3Wrap = (0, _jquery2.default)('.page3-wrap'),
+    $page4Wrap = (0, _jquery2.default)('.page4-wrap'),
+    $page4ContentImg = (0, _jquery2.default)('.page4-wrap>.content>img'),
+    $page5Wrap = (0, _jquery2.default)('.page5-wrap'),
+    $page6Wrap = (0, _jquery2.default)('.page6-wrap'),
+    $joinBtn = (0, _jquery2.default)('.page2-wrap>.join-btn'),
+    name = '',
+    gender = '',
+    tel = '',
+    card = '',
+    percent = void 0,
+    $nameInput = (0, _jquery2.default)('.page2-wrap .name'),
+    $genderInput = (0, _jquery2.default)('.page2-wrap input:radio[name=gender]'),
+    $telInput = (0, _jquery2.default)('.page2-wrap .tel'),
+    $cardInput = (0, _jquery2.default)('.page2-wrap .card');
+
+(0, _jqueryImgpreload2.default)(_jquery2.default); //启用插件
+$allImages.imgpreload({
+    each: function each(a) {
+        percent = a.length / $allImages.length * 100;
+        $preLoadCtn.text(percent + '%');
+        if (percent === 100) {
+            $preLoadCtn.css({ display: 'none' });
+            $page1Wrap.removeClass('hide');
+        }
+    }
+});
+// document.querySelector('body').addEventListener('touchmove',function(event){
+//     event.preventDefault()
+// })
+(0, _jquery2.default)('body').on('touchmove', function ($event) {
+    $event.preventDefault();
+});
+
+_jquery2.default;
 
 function touchStart($event) {
     startY = $event.originalEvent.touches[0].pageY;
     moveY = 0;
 }
 
-//page1滑动事件
+//page1手势事件
 !function () {
     //moveY>0,上滑,反之下滑
     function page2TouchEnd($event) {
         moveY = $event.originalEvent.changedTouches[0].pageY - startY;
-        if (moveY > 0) {
-            page1Wrap.css('transform', 'translateY(0)');
-        }
-        if (moveY < 0) {
+        if (moveY < -50) {
+            isAnimate = true;
             $page1Wrap.css({
                 transform: 'translateY(-100%)',
                 opacity: 0
-            });
+            }, 2000);
         }
+        $page1Wrap.on('transitionend', function fn() {
+            $page1Wrap.css({ display: 'none' });
+            $page2Wrap.fadeIn(800, 'linear', function () {
+                $page1Wrap.off('transitionend', fn);
+                isAnimate = false;
+            });
+        });
     }
 
     $page1Wrap.on('touchstart', function ($event) {
         touchStart($event);
     });
     $page1Wrap.on('touchend', function ($event) {
+        if (isAnimate) return;
         page2TouchEnd($event);
-    });
-    $page1Wrap.on('transitionend', function () {
-        $page1Wrap.css({ display: 'none' });
     });
 }();
 
-//page2滑动事件
+//page2手势事件
 !function () {
-    function page2TouchEnd() {}
+    function page2TouchEnd($event) {
+        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
+        if (moveY > 50) {
+            isAnimate = true;
+            $page2Wrap.fadeOut(800, 'linear', function () {
+                $page1Wrap.css({ display: 'block' });
+                setTimeout(function () {
+                    $page1Wrap.css({
+                        transform: 'translateY(0)',
+                        opacity: 1
+                    });
+                    //解锁
+                    $page1Wrap.on('transitionend', function fn() {
+                        $page1Wrap.off('transitionend', fn);
+                        isAnimate = false;
+                    });
+                }, 300);
+            });
+        }
+    }
 
     $page2Wrap.on('touchstart', function ($event) {
         touchStart($event);
@@ -131,22 +197,266 @@ function touchStart($event) {
     $page2Wrap.on('transitionend', function ($event) {
         page2TouchEnd($event);
     });
+    $joinBtn.on('click', function ($event) {
+        $page3Wrap.css({ transform: 'translateY(-100%)' });
+        $page3Wrap.find('.name').text(name + gender);
+    });
+
+    $nameInput.on('input', function ($event) {
+        name = (0, _jquery2.default)(this).val();
+    });
+    $genderInput.on('change', function ($event) {
+        gender = (0, _jquery2.default)(this).val();
+    });
+    $telInput.on('input', function ($event) {
+        tel = (0, _jquery2.default)(this).val();
+    });
+    $cardInput.on('input', function ($event) {
+        card = (0, _jquery2.default)(this).val();
+    });
 }();
 
+//page3手势事件
+!function () {
+    function page3TouchEnd($event) {
+        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
+        if (moveY > 50) {
+            $page3Wrap.css({ transform: 'translateY(0)' });
+        }
+        if (moveY < -50) {
+            $page4Wrap.css({ transform: 'translateY(-200%)' });
+        }
+    }
+
+    $page3Wrap.on('touchstart', function ($event) {
+        touchStart($event);
+    });
+    $page3Wrap.on('touchend', function ($event) {
+        page3TouchEnd($event);
+    });
+}();
+
+//page4手势事件
+!function () {
+    var n = 0,
+        //页内图片滚动记录
+    distance = 0; //页内图片滚动距离
+
+
+    function page4TouchEnd($event) {
+        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
+        if (moveY > 50) {
+            if (n !== 0) {
+                //页内滚动滚动判断
+                distance -= 500;
+                $page4ContentImg.css({ transform: 'translateY(-' + distance + 'px)' });
+                n--;
+            } else {
+                $page4Wrap.css({ transform: 'translateY(-100%)' });
+            }
+        }
+        if (moveY < -50) {
+            if (n < 2) {
+                distance += 500;
+                $page4ContentImg.css({ transform: 'translateY(-' + distance + 'px)' });
+                n++;
+            } else {
+                $page5Wrap.css({ transform: 'translateY(-300%)' });
+                $page5Wrap.on('transitionend', function fn() {
+                    $page5Wrap.find('p').removeClass('hide');
+                    $page5Wrap.addClass('action');
+                    $page5Wrap.off('transitionend', fn);
+                });
+                n = 0;
+                distance = 0;
+            }
+        }
+    }
+
+    $page4Wrap.on('touchstart', function ($event) {
+        touchStart($event);
+    });
+    $page4Wrap.on('touchend', function ($event) {
+        page4TouchEnd($event);
+    });
+}();
+
+//page5手势事件
+!function () {
+
+    function page5TouchEnd($event) {
+        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
+        if (moveY > 50) {
+            $page5Wrap.css({ transform: 'translateY(-200%)' });
+            $page5Wrap.on('transitionend', function fn() {
+                $page5Wrap.find('p').addClass('hide');
+                $page5Wrap.removeClass('action');
+                $page5Wrap.off('transitionend', fn);
+            });
+        }
+        if (moveY < -50) {
+            $page6Wrap.css({ transform: 'translateY(-400%)' });
+            $page6Wrap.on('transitionend', function fn() {
+
+                //page6添加动画
+                $page6Wrap.find('p').removeClass('hide');
+                $page6Wrap.addClass('action');
+                $page6Wrap.off('transitionend', fn);
+
+                //page5去除动画
+                $page5Wrap.find('p').addClass('hide');
+                $page5Wrap.removeClass('action');
+
+                $page6Wrap.off('transitionend', fn);
+            });
+        }
+    }
+
+    $page5Wrap.on('touchstart', function ($event) {
+        touchStart($event);
+    });
+    $page5Wrap.on('touchend', function ($event) {
+        page5TouchEnd($event);
+    });
+    $page5Wrap.on('transitionend', function ($event) {
+        $page4ContentImg.css({ transform: 'translateY(0)' });
+    });
+}();
+
+//page6手势事件
+!function () {
+    function page6TouchEnd($event) {
+        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
+        if (moveY > 50) {
+            $page6Wrap.css({ transform: 'translateY(-300%)' });
+            $page6Wrap.on('transitionend', function fn() {
+
+                //page5添加动画
+                $page5Wrap.find('p').removeClass('hide');
+                $page5Wrap.addClass('action');
+
+                //page6去除动画
+                $page6Wrap.find('p').addClass('hide');
+                $page6Wrap.removeClass('action');
+                //解除事件
+                $page6Wrap.off('transitionend', fn);
+            });
+        }
+    }
+
+    $page6Wrap.on('touchstart', function ($event) {
+        touchStart($event);
+    });
+    $page6Wrap.on('touchend', function ($event) {
+        page6TouchEnd($event);
+    });
+}();
+
+//transitionend事件完成后都应该卸载掉事件
+//每次页面离开都删除掉动画类名并隐藏动画元素,保证每次进入页面都能执行动画
+
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */
+
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = extendJquery;
+/**
+* jquery.imgpreload 1.6.2 <https://github.com/farinspace/jquery.imgpreload>
+* Copyright 2009-2014 Dimas Begunoff <http://farinspace.com>
+* License MIT <http://opensource.org/licenses/MIT>
+*/
+
+function extendJquery(jQuery) {
+    if ('undefined' != typeof jQuery) {
+        (function ($) {
+            'use strict';
+
+            // extend jquery (because i love jQuery)
+
+            $.imgpreload = function (imgs, settings) {
+                settings = $.extend({}, $.fn.imgpreload.defaults, settings instanceof Function ? { all: settings } : settings);
+
+                // use of typeof required
+                // https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Operators/Special_Operators/Instanceof_Operator#Description
+                if ('string' == typeof imgs) {
+                    imgs = [imgs];
+                }
+
+                var loaded = [];
+
+                $.each(imgs, function (i, elem) {
+                    var img = new Image();
+
+                    var url = elem;
+
+                    var img_obj = img;
+
+                    if ('string' != typeof elem) {
+                        url = $(elem).attr('src') || $(elem).css('background-image').replace(/^url\((?:"|')?(.*)(?:'|")?\)$/mg, "$1");
+
+                        img_obj = elem;
+                    }
+
+                    $(img).bind('load error', function (e) {
+                        loaded.push(img_obj);
+
+                        $.data(img_obj, 'loaded', 'error' == e.type ? false : true);
+
+                        // http://msdn.microsoft.com/en-us/library/ie/tkcsy6fe(v=vs.94).aspx
+                        if (settings.each instanceof Function) {
+                            settings.each.call(img_obj, loaded.slice(0));
+                        }
+
+                        // http://jsperf.com/length-in-a-variable
+                        if (loaded.length >= imgs.length && settings.all instanceof Function) {
+                            settings.all.call(loaded);
+                        }
+
+                        $(this).unbind('load error');
+                    });
+
+                    img.src = url;
+                });
+            };
+
+            $.fn.imgpreload = function (settings) {
+                $.imgpreload(this, settings);
+
+                return this;
+            };
+
+            $.fn.imgpreload.defaults = {
+                each: null, // callback invoked when each image is loaded
+                all: null // callback invoked when all images have loaded
+            };
+        })(jQuery);
+    }
+}
+
+/***/ }),
+
+/***/ 2:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 3 */
+
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -9967,4 +10277,5 @@ return jQuery;
 
 
 /***/ })
-/******/ ]);
+
+/******/ });
