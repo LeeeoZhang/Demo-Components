@@ -72,7 +72,7 @@
 
 __webpack_require__(1);
 
-__webpack_require__(2);
+var _Pages = __webpack_require__(2);
 
 var _jquery = __webpack_require__(3);
 
@@ -82,318 +82,36 @@ var _jqueryImgpreload = __webpack_require__(4);
 
 var _jqueryImgpreload2 = _interopRequireDefault(_jqueryImgpreload);
 
+var _preloadList = __webpack_require__(5);
+
+var _temp = __webpack_require__(6);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var cliHeight = window.innerHeight,
-    $allImages = (0, _jquery2.default)('#wrap img'),
-    startY = void 0,
-    moveY = void 0,
-    isAnimate = false,
-    //动画锁
-$preLoadCtn = (0, _jquery2.default)('.preload'),
-    $page1Wrap = (0, _jquery2.default)('.page1-wrap'),
-    $page2Wrap = (0, _jquery2.default)('.page2-wrap'),
-    $page3Wrap = (0, _jquery2.default)('.page3-wrap'),
-    $page4Wrap = (0, _jquery2.default)('.page4-wrap'),
-    $page4ContentImg = (0, _jquery2.default)('.page4-wrap>.content>img'),
-    $page5Wrap = (0, _jquery2.default)('.page5-wrap'),
-    $page6Wrap = (0, _jquery2.default)('.page6-wrap'),
-    $joinBtn = (0, _jquery2.default)('.page2-wrap>.join-btn'),
-    name = '',
-    gender = '',
-    tel = '',
-    card = '',
-    percent = void 0,
-    $nameInput = (0, _jquery2.default)('.page2-wrap .name'),
-    $genderInput = (0, _jquery2.default)('.page2-wrap input:radio[name=gender]'),
-    $telInput = (0, _jquery2.default)('.page2-wrap .tel'),
-    $cardInput = (0, _jquery2.default)('.page2-wrap .card');
+var percent = void 0,
+    $percentCt = (0, _jquery2.default)('.preload>.percent'),
+    $wrap1 = (0, _jquery2.default)('#wrap1');
 
-(0, _jqueryImgpreload2.default)(_jquery2.default); //启用插件
-$allImages.imgpreload({
+document.body.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+});
+
+(0, _jqueryImgpreload2.default)(_jquery2.default);
+_jquery2.default.imgpreload(_preloadList.images, {
     each: function each(a) {
-        percent = Math.round(a.length / $allImages.length * 100);
-        $preLoadCtn.text(percent + '%');
+        percent = Math.round(a.length / _preloadList.images.length * 100);
+        $percentCt.text(percent + '%');
         if (percent === 100) {
-            $preLoadCtn.css({ display: 'none' });
-            $page1Wrap.removeClass('hide');
-            (0, _jquery2.default)('.bgm').append('<audio autoplay loop src=""><audio>');
+            (0, _jquery2.default)('.preload').css({ display: 'none' });
+            $wrap1.append(_temp.template);
+            (0, _jquery2.default)('.page1').removeClass('hide');
+            (0, _Pages.Pages)({
+                startPage: 0,
+                totalPages: 7
+            });
         }
     }
 });
-// document.querySelector('body').addEventListener('touchmove',function(event){
-//     event.preventDefault()
-// })
-(0, _jquery2.default)('body').on('touchmove', function ($event) {
-    $event.preventDefault();
-});
-
-_jquery2.default;
-
-function touchStart($event) {
-    startY = $event.originalEvent.touches[0].pageY;
-    moveY = 0;
-}
-
-//page1手势事件
-!function () {
-    //moveY>0,上滑,反之下滑
-    function page2TouchEnd($event) {
-        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
-        if (moveY < -50) {
-            isAnimate = true;
-            $page1Wrap.css({
-                transform: 'translateY(-100%)',
-                opacity: 0
-            }, 2000);
-        }
-        $page1Wrap.on('transitionend', function fn() {
-            $page1Wrap.css({ display: 'none' });
-            $page2Wrap.fadeIn(800, 'linear', function () {
-                $page1Wrap.off('transitionend', fn);
-                isAnimate = false;
-            });
-        });
-    }
-
-    $page1Wrap.on('touchstart', function ($event) {
-        touchStart($event);
-    });
-    $page1Wrap.on('touchend', function ($event) {
-        if (isAnimate) return;
-        page2TouchEnd($event);
-    });
-}();
-
-//page2手势事件
-!function () {
-    function page2TouchEnd($event) {
-        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
-        if (moveY > 50) {
-            isAnimate = true;
-            $page2Wrap.fadeOut(800, 'linear', function () {
-                $page1Wrap.css({ display: 'block' });
-                setTimeout(function () {
-                    $page1Wrap.css({
-                        transform: 'translateY(0)',
-                        opacity: 1
-                    });
-                    //解锁
-                    $page1Wrap.on('transitionend', function fn() {
-                        $page1Wrap.off('transitionend', fn);
-                        isAnimate = false;
-                    });
-                }, 300);
-            });
-        }
-    }
-
-    $page2Wrap.on('touchstart', function ($event) {
-        touchStart($event);
-    });
-    $page2Wrap.on('touchend', function ($event) {
-        page2TouchEnd($event);
-    });
-    $page2Wrap.on('transitionend', function ($event) {
-        page2TouchEnd($event);
-    });
-    $joinBtn.on('click', function ($event) {
-        $page3Wrap.css({ transform: 'translateY(-100%)' });
-        $page3Wrap.find('.name').text(name + gender);
-    });
-
-    //监听输入事件,获取信息
-    $nameInput.on('input', function ($event) {
-        name = (0, _jquery2.default)(this).val();
-    });
-    $genderInput.on('change', function ($event) {
-        gender = (0, _jquery2.default)(this).val();
-    });
-    $telInput.on('input', function ($event) {
-        tel = (0, _jquery2.default)(this).val();
-    });
-    $cardInput.on('input', function ($event) {
-        card = (0, _jquery2.default)(this).val();
-    });
-}();
-
-//page3手势事件
-!function () {
-    function page3TouchEnd($event) {
-        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
-        if (moveY > 50) {
-            $page3Wrap.css({ transform: 'translateY(0)' });
-        }
-        if (moveY < -50) {
-            $page4Wrap.css({ transform: 'translateY(-200%)' });
-        }
-    }
-
-    $page3Wrap.on('touchstart', function ($event) {
-        touchStart($event);
-    });
-    $page3Wrap.on('touchend', function ($event) {
-        page3TouchEnd($event);
-    });
-}();
-
-//page4手势事件
-!function () {
-    var n = 0,
-        //页内图片滚动记录
-    distance = 0; //页内图片滚动距离
-
-
-    function page4TouchEnd($event) {
-        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
-        if (moveY > 50) {
-            if (n !== 0) {
-                //页内滚动滚动判断
-                distance -= 500;
-                $page4ContentImg.css({ transform: 'translateY(-' + distance + 'px)' });
-                n--;
-            } else {
-                $page4Wrap.css({ transform: 'translateY(-100%)' });
-            }
-        }
-        if (moveY < -50) {
-            if (n < 2) {
-                distance += 500;
-                $page4ContentImg.css({ transform: 'translateY(-' + distance + 'px)' });
-                n++;
-            } else {
-                $page5Wrap.css({ transform: 'translateY(-300%)' });
-                $page5Wrap.on('transitionend', function fn() {
-                    $page5Wrap.find('p').removeClass('hide');
-                    $page5Wrap.addClass('action');
-                    $page5Wrap.off('transitionend', fn);
-                });
-                n = 0;
-                distance = 0;
-            }
-        }
-    }
-
-    $page4Wrap.on('touchstart', function ($event) {
-        touchStart($event);
-    });
-    $page4Wrap.on('touchend', function ($event) {
-        page4TouchEnd($event);
-    });
-}();
-
-//page5手势事件
-!function () {
-
-    function page5TouchEnd($event) {
-        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
-        if (moveY > 50) {
-            new Promise(function (resolve, reject) {
-                $page5Wrap.css({ transform: 'translateY(-200%)' });
-                $page5Wrap.on('transitionend', function fn() {
-                    $page5Wrap.off('transitionend', fn);
-                    resolve();
-                });
-            }).then(function () {
-                $page5Wrap.find('p').addClass('hide');
-                $page5Wrap.removeClass('action');
-            });
-            // $page5Wrap.css({transform: `translateY(-200%)`})
-            // $page5Wrap.on('transitionend',function fn(){
-            //     $page5Wrap.find('p').addClass('hide')
-            //     $page5Wrap.removeClass('action')
-            //     $page5Wrap.off('transitionend',fn)
-            // })
-        }
-        if (moveY < -50) {
-            new Promise(function (resolve, reject) {
-                $page6Wrap.css({ transform: 'translateY(-400%)' });
-                $page6Wrap.on('transitionend', function fn() {
-                    $page6Wrap.off('transitionend', fn);
-                    resolve();
-                });
-            }).then(function () {
-                //page6添加动画
-                $page6Wrap.find('p').removeClass('hide');
-                $page6Wrap.addClass('action');
-                //page5去除动画
-                $page5Wrap.find('p').addClass('hide');
-                $page5Wrap.removeClass('action');
-            });
-            // $page6Wrap.css({transform: `translateY(-400%)`})
-            // $page6Wrap.on('transitionend',function fn(){
-
-            //     //page6添加动画
-            //     $page6Wrap.find('p').removeClass('hide')
-            //     $page6Wrap.addClass('action')
-            //     $page6Wrap.off('transitionend',fn)
-
-            //     //page5去除动画
-            //     $page5Wrap.find('p').addClass('hide')
-            //     $page5Wrap.removeClass('action')
-
-            //     $page6Wrap.off('transitionend',fn)
-            // })
-        }
-    }
-
-    $page5Wrap.on('touchstart', function ($event) {
-        touchStart($event);
-    });
-    $page5Wrap.on('touchend', function ($event) {
-        page5TouchEnd($event);
-    });
-    $page5Wrap.on('transitionend', function ($event) {
-        $page4ContentImg.css({ transform: 'translateY(0)' });
-    });
-}();
-
-//page6手势事件
-!function () {
-    function page6TouchEnd($event) {
-        moveY = $event.originalEvent.changedTouches[0].pageY - startY;
-        if (moveY > 50) {
-            new Promise(function (resolve, reject) {
-                $page6Wrap.css({ transform: 'translateY(-300%)' });
-                $page6Wrap.on('transitionend', function fn() {
-                    //解除事件
-                    $page6Wrap.off('transitionend', fn);
-                    resolve();
-                });
-            }).then(function () {
-                //page5添加动画
-                $page5Wrap.find('p').removeClass('hide');
-                $page5Wrap.addClass('action');
-                //page6去除动画
-                $page6Wrap.find('p').addClass('hide');
-                $page6Wrap.removeClass('action');
-            });
-            // $page6Wrap.css({transform: `translateY(-300%)`})
-            // $page6Wrap.on('transitionend',function fn(){
-            //
-            //     //page5添加动画
-            //     $page5Wrap.find('p').removeClass('hide')
-            //     $page5Wrap.addClass('action')
-            //
-            //     //page6去除动画
-            //     $page6Wrap.find('p').addClass('hide')
-            //     $page6Wrap.removeClass('action')
-            //     //解除事件
-            //     $page6Wrap.off('transitionend',fn)
-            // })
-        }
-    }
-
-    $page6Wrap.on('touchstart', function ($event) {
-        touchStart($event);
-    });
-    $page6Wrap.on('touchend', function ($event) {
-        page6TouchEnd($event);
-    });
-}();
-
-//transitionend事件完成后都应该卸载掉事件
-//每次页面离开都删除掉动画类名并隐藏动画元素,保证每次进入页面都能执行动画
 
 /***/ }),
 /* 1 */
@@ -403,9 +121,94 @@ function touchStart($event) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Pages = undefined;
+
+var _jquery = __webpack_require__(3);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Pages = function Pages(parms) {
+    var startY = void 0,
+        moveY = void 0,
+        cliHeight = void 0,
+        startPage = parms.startPage,
+        //开始的页数,同时也是当前页数
+    totalPages = parms.totalPages,
+        //总页数
+    $pagesList = (0, _jquery2.default)('.page');
+    var wrap1 = document.querySelector("#wrap1"),
+        wrap2 = document.querySelector(".wrap2");
+
+    //获取屏幕高度,监听resize事件,每当resize时重新获取
+    function getCliHeight() {
+        cliHeight = window.innerHeight;
+    }
+
+    getCliHeight();
+    window.addEventListener('resize', function () {
+        getCliHeight();
+    });
+
+    //获取触摸开始时的y坐标
+    function touchStart(event) {
+        startY = event.touches[0].pageY;
+        moveY = 0;
+    }
+
+    //计算y轴移动距离,判断上下滑动
+    //moveY>0,向下滑动, moveY<0 向上滑动
+    //同时移动wrap2
+    function touchMove(event) {
+        moveY = event.touches[0].pageY - startY;
+        // wrap2.style.transform = `translateY(${-startPage * cliHeight + moveY}px)`
+    }
+
+    function touchEnd(event) {
+        if (moveY === 0) return;
+        if (moveY > 50) {
+            startPage--;
+        }
+        if (moveY < -50) {
+            startPage++;
+        }
+        if (startPage === totalPages) {
+            startPage = totalPages - 1;
+        }
+        if (startPage < 0) {
+            startPage = 0;
+        }
+        wrap2.style.transition = ".3s linear";
+        wrap2.style.transform = 'translateY(' + -startPage * 14.29 + '%)';
+    }
+    wrap2.addEventListener('touchstart', function (event) {
+        touchStart(event);
+    });
+    wrap2.addEventListener('touchmove', function (event) {
+        touchMove(event);
+    });
+    wrap2.addEventListener('touchend', function (event) {
+        touchEnd(event);
+    });
+    wrap2.addEventListener('transitionend', function fn() {
+        console.log('动画完了');
+        $pagesList.each(function (index, item) {
+            item.classList.add('hide');
+        });
+        $pagesList[startPage].classList.remove('hide');
+    });
+};
+
+exports.Pages = Pages;
 
 /***/ }),
 /* 3 */
@@ -10311,6 +10114,34 @@ function extendJquery(jQuery) {
         })(jQuery);
     }
 }
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var images = ["./src/images/logo.png", "./src/images/page1-title1.png", "./src/images/page1-title2.png", "./src/images/open-now.png", "./src/images/page2-logo.png", "./src/images/page2-title.png", "./src/images/page2-content.png", "./src/images/page3-title1.png", "./src/images/page3-title2.png", "./src/images/page3-content.png", "./src/images/page4-title.png", "./src/images/page4-content3.png", "./src/images/page4-content1.png", "./src/images/page4-content2.png", "./src/images/page4-icon.png", "./src/images/page5-title.png", "./src/images/page5-content.png", "./src/images/page6-title.png", "./src/images/page6-content1.png", "./src/images/page6-content2.png", "./src/images/page6-content3.png", "./src/images/page6-content4.png", "./src/images/page6-content5.png", "./src/images/page6-finger.png", "./src/images/page6-content6.png", "./src/images/page7-title.png", "./src/images/page7-step1.png", "./src/images/page7-step2.png", "./src/images/page7-step3.png", "./src/images/page7-tips.png", "./src/images/page7-button1.png", "./src/images/page7-button2.png", "./src/images/arrow.png", "./src/images/page6-1-content.png", "./src/images/page6-1-close.png", "./src/images/page7-1-title.png", "./src/images/page7-1-button1.png", "./src/images/page7-1-button2.png", "./src/images/page7-1-tel.png", "./dist/0d1f1c5286211b3f43e641ebf81de94a.jpg", "./dist/71bdf663194ab4c9daf7517dec2cbbbf.jpg", "./dist/57731a8b630a5d6857b86d62a5890528.png", "./dist/e3adc979f9fe967c7dc0b8276d5ce548.jpg", "./dist/fc78d65d1a280f5765b0b74b632217c7.jpg"];
+
+exports.images = images;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var template = "    <div class=\"wrap2\">\n        <div class=\"page1-wrap\">\n            <div class=\"page1 page hide\">\n                <img src=\"./src/images/logo.png\" alt=\"logo\" class=\"logo\">\n                <p class=\"title1\"><img src=\"./src/images/page1-title1.png\" alt=\"title1\"></p>\n                <p class=\"title2\"><img src=\"./src/images/page1-title2.png\" alt=\"title2\"></p>\n                <p class=\"open\"><img src=\"./src/images/open-now.png\" alt=\"open\"></p>\n            </div>\n        </div>\n        <div class=\"page2-wrap\">\n            <div class=\"page2 page hide\">\n                <img src=\"./src/images/page2-logo.png\" alt=\"page2-logo\" class=\"logo\">\n                <p class=\"title\"><img src=\"./src/images/page2-title.png\" alt=\"page2-title/\"></p>\n                <p class=\"content\"><img src=\"./src/images/page2-content.png\" alt=\"page2-content\"></p>\n            </div>\n        </div>\n        <div class=\"page3-wrap\">\n            <div class=\"page3 page hide\">\n                <img src=\"./src/images/page3-title1.png\" alt=\"title1\" class=\"title1\">\n                <p class=\"title2\"><img src=\"./src/images/page3-title2.png\" alt=\"title2\"></p>\n                <p class=\"content\"><img src=\"./src/images/page3-content.png\" alt=\"content\"></p>\n            </div>\n        </div>\n        <div class=\"page4-wrap\">\n            <div class=\"page4 page hide\">\n                <p class=\"title\"><img src=\"./src/images/page4-title.png\" alt=\"\"></p>\n                <p class=\"content3\"><img src=\"./src/images/page4-content3.png\" alt=\"\"></p>\n                <img src=\"./src/images/page4-content1.png\" alt=\"\" class=\"content1\">\n                <img src=\"./src/images/page4-content2.png\" alt=\"\" class=\"content2\">\n                <img src=\"./src/images/page4-icon.png\" alt=\"\" class=\"icon\">\n            </div>\n        </div>\n        <div class=\"page5-wrap\">\n            <div class=\"page5 page hide\">\n                <img src=\"./src/images/page5-title.png\" alt=\"title\" class=\"title\">\n                <p class=\"content\"><img src=\"./src/images/page5-content.png\" alt=\"content\"></p>\n            </div>\n        </div>\n        <div class=\"page6-wrap\">\n            <div class=\"page6 page hide>\n                <p class=\"title\"><img src=\"./src/images/page6-title.png\" alt=\"title\"></p>\n                <p class=\"content content1\"><img src=\"./src/images/page6-content1.png\" alt=\"\"></p>\n                <p class=\"content content2\"><img src=\"./src/images/page6-content2.png\" alt=\"\"></p>\n                <p class=\"content content3\"><img src=\"./src/images/page6-content3.png\" alt=\"\"></p>\n                <p class=\"content content4\"><img src=\"./src/images/page6-content4.png\" alt=\"\"></p>\n                <p class=\"content content5\">\n                    <img src=\"./src/images/page6-content5.png\" alt=\"\">\n                    <img src=\"./src/images/page6-finger.png\" alt=\"finger\">\n                </p>\n                <p class=\"content content6\">\n                    <img src=\"./src/images/page6-content6.png\" alt=\"\">\n                </p>\n            </div>\n        </div>\n        <div class=\"page7-wrap\">\n            <div class=\"page7 page hide\">\n                <p class=\"title\"><img src=\"./src/images/page7-title.png\" alt=\"title\"></p>\n                <p class=\"step1 step\"><img src=\"./src/images/page7-step1.png\" alt=\"step1\"></p>\n                <p class=\"step2 step\"><img src=\"./src/images/page7-step2.png\" alt=\"step2\"></p>\n                <p class=\"step3 step\"><img src=\"./src/images/page7-step3.png\" alt=\"step3\"></p>\n                <p class=\"tips\"><img src=\"./src/images/page7-tips.png\" alt=\"tips\"></p>\n                <p class=\"action-group\">\n                    <img src=\"./src/images/page7-button1.png\" alt=\"button1\">\n                    <img src=\"./src/images/page7-button2.png\" alt=\"button2\">\n                </p>\n            </div>\n        </div>\n    </div>\n    <div class=\"arrow\">\n        <img src=\"./src/images/arrow.png\" alt=\"arrow\">\n    </div>\n    <div class=\"page6-dialog hide\">\n        <img src=\"./src/images/page6-1-content.png\" alt=\"\">\n        <img src=\"./src/images/page6-1-close.png\" alt=\"close\">\n    </div>\n    <div class=\"page7-dialog\">\n        <p class=\"title\"><img src=\"./src/images/page7-1-title.png\" alt=\"title\"></p>\n        <div class=\"form\">\n            <input type=\"text\" class=\"name\">\n            <input type=\"text\" class=\"tel\">\n            <input type=\"text\" class=\"address\">\n            <input type=\"text\" class=\"email\">\n        </div>\n        <div class=\"choose-box\">\n            <div class=\"years\">\n                <p>\u75C5\u9F84</p>\n                <div class=\"choose-button\">\n                    <input type=\"radio\" name=\"years\" id=\"one\" value=\"1\u5E74\u4EE5\u5185\">\n                    <label for=\"one\">1\u5E74\u4EE5\u5185</label>\n                    <input type=\"radio\" name=\"years\" id=\"two\" value=\"1-3\u5E74\">\n                    <label for=\"two\">1-3\u5E74</label>\n                    <input type=\"radio\" name=\"years\" id=\"three\" value=\"3-5\u5E74\">\n                    <label for=\"three\">3-5\u5E74</label>\n                    <input type=\"radio\" name=\"years\" id=\"four\" value=\"5-10\u5E74\">\n                    <label for=\"four\">5-10\u5E74</label>\n                    <input type=\"radio\" name=\"years\" id=\"five\" value=\"10\u5E74\u4EE5\u4E0A\">\n                    <label for=\"five\">10\u5E74\u4EE5\u4E0A</label>\n                </div>\n            </div>\n            <div class=\"description\">\n                <p>\u662F\u5426\u5DF2\u5F15\u53D1\u7CD6\u5C3F\u75C5\u5E76\u53D1\u75C7</p>\n                <div class=\"choose-button\">\n                    <div class=\"answer1\">\n                        <input type=\"radio\" id=\"yes\" name=\"answer\" value=\"\u662F\">\n                        <label for=\"yes\">\u662F</label>\n                        <input type=\"radio\" id=\"no\" name=\"answer\" value=\"\u5426\">\n                        <label for=\"no\">\u5426</label>\n                    </div>\n                    <div class=\"answer2\">\n                       ( <input type=\"radio\" name=\"description\" id=\"answer2-one\">\n                        <label for=\"answer2-one\">\u7CD6\u8DB3</label>\n                        <input type=\"radio\" name=\"description\" id=\"answer2-two\">\n                        <label for=\"answer2-two\">\u7CD6\u7F51</label>\n                        <input type=\"radio\" name=\"description\" id=\"answer2-three\">\n                        <label for=\"answer2-three\">\u5176\u4ED6</label>\n                        <input type=\"radio\" name=\"description\" id=\"answer2-four\">\n                        <label for=\"answer2-four\">\u7CD6\u5C3F\u75C5\u5468\u56F4\u795E\u7ECF\u6027\u75C5\u53D8</label> )\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"action-group\">\n            <img src=\"./src/images/page7-1-button1.png\" alt=\"\">\n            <img src=\"./src/images/page7-1-button2.png\" alt=\"\">\n        </div>\n        <p class=\"contact\">\n            <img src=\"./src/images/page7-1-tel.png\" alt=\"contact\">\n        </p>\n    </div>";
+
+exports.template = template;
 
 /***/ })
 /******/ ]);

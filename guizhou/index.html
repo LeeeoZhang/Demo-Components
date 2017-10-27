@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贵州百灵,糖尿病公益诊疗计划</title>
+    <script>
+        var deviceWidth = parseInt(window.screen.width)
+        var deviceScale = deviceWidth / 640
+        var ua = navigator.userAgent
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1)
+            if (version > 2.3) {
+                document.write('<meta name="viewport" content="width=640,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">')
+            } else {
+                document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />')
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no">')
+        }
+    </script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body>
+<div id="wrap1">
+    <div class="preload">
+        <img src="./src/images/logo.png" alt="log">
+        <p class="percent">0%</p>
+        <p>正在加载</p>
+    </div>
+</div>
+<script src="./dist/bundle.js"></script>
+</body>
+</html>
