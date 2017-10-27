@@ -1,7 +1,9 @@
 import './style.scss'
+import './animate.scss'
 import {Pages} from './Pages'
 import $ from 'jquery'
 import jqueryPreload from './jquery.imgpreload.js'
+import bindEvent from './bindEvent'
 import {images} from './preloadList'
 import {template} from './temp'
 
@@ -27,6 +29,7 @@ $.imgpreload(images,{
                 startPage: 0,
                 totalPages: 7
             })
+            bindEvent()
         }
     }
 })

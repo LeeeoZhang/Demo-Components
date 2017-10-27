@@ -36,8 +36,9 @@ let template = `    <div class="wrap2">
                 <p class="content"><img src="./src/images/page5-content.png" alt="content"></p>
             </div>
         </div>
+        
         <div class="page6-wrap">
-            <div class="page6 page hide>
+            <div class="page6 page hide">
                 <p class="title"><img src="./src/images/page6-title.png" alt="title"></p>
                 <p class="content content1"><img src="./src/images/page6-content1.png" alt=""></p>
                 <p class="content content2"><img src="./src/images/page6-content2.png" alt=""></p>
@@ -45,13 +46,14 @@ let template = `    <div class="wrap2">
                 <p class="content content4"><img src="./src/images/page6-content4.png" alt=""></p>
                 <p class="content content5">
                     <img src="./src/images/page6-content5.png" alt="">
-                    <img src="./src/images/page6-finger.png" alt="finger">
+                    <img src="./src/images/page6-finger.png" alt="finger" class="finger">
                 </p>
                 <p class="content content6">
                     <img src="./src/images/page6-content6.png" alt="">
                 </p>
             </div>
         </div>
+        
         <div class="page7-wrap">
             <div class="page7 page hide">
                 <p class="title"><img src="./src/images/page7-title.png" alt="title"></p>
@@ -73,7 +75,7 @@ let template = `    <div class="wrap2">
         <img src="./src/images/page6-1-content.png" alt="">
         <img src="./src/images/page6-1-close.png" alt="close">
     </div>
-    <div class="page7-dialog">
+    <div class="page7-dialog hide">
         <p class="title"><img src="./src/images/page7-1-title.png" alt="title"></p>
         <div class="form">
             <input type="text" class="name">
@@ -106,22 +108,22 @@ let template = `    <div class="wrap2">
                         <input type="radio" id="no" name="answer" value="否">
                         <label for="no">否</label>
                     </div>
-                    <div class="answer2">
-                       ( <input type="radio" name="description" id="answer2-one">
+                    <div class="answer2 hide">
+                       ( <input type="radio" name="description" id="answer2-one" value="糖足">
                         <label for="answer2-one">糖足</label>
-                        <input type="radio" name="description" id="answer2-two">
+                        <input type="radio" name="description" id="answer2-two" value="糖网>
                         <label for="answer2-two">糖网</label>
-                        <input type="radio" name="description" id="answer2-three">
+                        <input type="radio" name="description" id="answer2-three" value="其他>
                         <label for="answer2-three">其他</label>
-                        <input type="radio" name="description" id="answer2-four">
+                        <input type="radio" name="description" id="answer2-four" value="糖尿病周围神经性病变">
                         <label for="answer2-four">糖尿病周围神经性病变</label> )
                     </div>
                 </div>
             </div>
         </div>
         <div class="action-group">
-            <img src="./src/images/page7-1-button1.png" alt="">
-            <img src="./src/images/page7-1-button2.png" alt="">
+            <img src="./src/images/page7-1-button1.png" alt="confirm">
+            <img src="./src/images/page7-1-button2.png" alt="back">
         </div>
         <p class="contact">
             <img src="./src/images/page7-1-tel.png" alt="contact">

@@ -1,0 +1,212 @@
+.page1 {
+    .title1 {
+        animation: scaleIn .8s both ease;
+    }
+    .title2 {
+        animation: fadeInUp .8s .5s both ease;
+    }
+    .open {
+        animation: fadeInUp .5s 1s both ease;
+    }
+}
+
+.page2 {
+    .logo {
+        animation: fadeInLeft .8s both ease;
+    }
+    .title {
+        animation: fadeInRight .8s both ease;
+    }
+    .content {
+        animation: scaleIn .8s both ease;
+    }
+}
+
+.page3 {
+    .title1 {
+        animation: fadeInUp .8s both ease;
+    }
+    .title2 {
+        animation: fadeInDown .8s both ease;
+    }
+    .content {
+        animation: fadeInRight .8s both ease;
+    }
+}
+
+.page4 {
+    .title {
+        animation: fadeInDown .8s both ease;
+    }
+    .content1 {
+        animation: fadeInLeft .8s both ease;
+    }
+    .content2 {
+        animation: fadeInRight .8s both ease;
+    }
+    .content3 {
+        animation: fadeInUp .8s both ease;
+    }
+}
+
+.page5 {
+    .title {
+        animation: fadeInLeft .8s both ease;
+    }
+    .content {
+        animation: scaleIn .8s both ease;
+    }
+}
+
+.page6 {
+    .title {
+        animation: fadeInLeft .8s both ease;
+    }
+    .content1 {
+        animation: fadeInLeft .8s .2s both ease;
+    }
+    .content2 {
+        animation: fadeInLeft .8s .4s both ease;
+    }
+    .content3 {
+        animation: fadeInLeft .8s .6s both ease;
+    }
+    .content4 {
+        animation: fadeInLeft .8s .8s both ease;
+    }
+    .content5 {
+        animation: fadeInLeft .8s 1.0s both ease;
+    }
+    .content6 {
+        animation: fadeInLeft .8s 1.2s both ease;
+    }
+    .finger {
+        animation: fingerMove .8s infinite both ease alternate;
+    }
+}
+
+.page7 {
+    .title {
+        animation: fadeInDown .8s both ease;
+    }
+    .step1 {
+        animation: fadeInRight .8s .2s both ease;
+    }
+    .step2 {
+        animation: fadeInRight .8s .4s both ease;
+    }
+    .step3 {
+        animation: fadeInRight .8s .6s both ease;
+    }
+    .tips {
+        animation: fadeInRight .8s .8s both ease;
+    }
+    .action-group {
+        animation: fadeInRight .8s 1.0s both ease;
+    }
+}
+
+.arrow {
+    animation: arrowMove .8s infinite ease;
+}
+
+
+
+@keyframes arrowMove {
+    from {
+        transform: translate3d(0,0,0);
+    }
+    to {
+        transform: translate3d(0,10px,0);
+    }
+}
+
+@keyframes fingerMove {
+    from {
+        transform: translate3d(0,0,0);
+    }
+    to {
+        transform: translate3d(0,10px,0);
+    }
+}
+
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(0,100%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate(0, -100%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(-360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes move {
+    from {
+        -webkit-transform: translate3d(100%, 100%, 0);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}

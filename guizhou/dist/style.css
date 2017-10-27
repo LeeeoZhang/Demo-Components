@@ -1,7 +1,23 @@
 /*reset*/
-* {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
 /*main*/
 html, body {
@@ -41,7 +57,10 @@ html, body {
     box-sizing: border-box;
     padding-top: 73px;
     text-align: center;
-    position: relative; }
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100; }
     #wrap1 .page7-dialog .form {
       width: 457px;
       height: 294px;
@@ -56,15 +75,20 @@ html, body {
         background: transparent;
         color: #fff;
         outline: none;
+        position: absolute;
         border: none; }
       #wrap1 .page7-dialog .form .name {
-        margin: 16px 0 0 43px; }
+        top: 14px;
+        left: 103px; }
       #wrap1 .page7-dialog .form .tel {
-        margin: 51px 0 0 43px; }
+        top: 94px;
+        left: 103px; }
       #wrap1 .page7-dialog .form .address {
-        margin: 46px 0 0 43px; }
+        top: 173px;
+        left: 103px; }
       #wrap1 .page7-dialog .form .email {
-        margin: 50px 0 0 43px; }
+        top: 252px;
+        left: 103px; }
     #wrap1 .page7-dialog .choose-box {
       color: #fff;
       font-size: 24px;
@@ -111,15 +135,13 @@ html, body {
           display: -ms-flexbox;
           display: flex; }
           #wrap1 .page7-dialog .choose-box .description .choose-button .answer1 {
-            width: 130px; }
-          #wrap1 .page7-dialog .choose-box .description .choose-button .answer2 {
-            display: none; }
-            #wrap1 .page7-dialog .choose-box .description .choose-button .answer2 input[type=radio] {
-              margin-left: 5px; }
-            #wrap1 .page7-dialog .choose-box .description .choose-button .answer2 input[type=radio]:last-of-type {
-              margin-left: 21px; }
-            #wrap1 .page7-dialog .choose-box .description .choose-button .answer2 label {
-              margin-left: 9px; }
+            width: 135px; }
+          #wrap1 .page7-dialog .choose-box .description .choose-button .answer2 input[type=radio] {
+            margin-left: 5px; }
+          #wrap1 .page7-dialog .choose-box .description .choose-button .answer2 input[type=radio]:last-of-type {
+            margin-left: 21px; }
+          #wrap1 .page7-dialog .choose-box .description .choose-button .answer2 label {
+            margin-left: 9px; }
     #wrap1 .page7-dialog .action-group {
       width: 100%;
       position: absolute;
@@ -137,7 +159,8 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    z-index: 100; }
     #wrap1 .page6-dialog img[alt=close] {
       position: absolute;
       right: 50px;
@@ -152,7 +175,8 @@ html, body {
       height: 30px; }
   #wrap1 .wrap2 {
     width: 100%;
-    height: 700%; }
+    height: 700%;
+    -webkit-backface-visibility: hidden; }
     #wrap1 .wrap2 .page1-wrap, #wrap1 .wrap2 .page2-wrap, #wrap1 .wrap2 .page3-wrap, #wrap1 .wrap2 .page4-wrap, #wrap1 .wrap2 .page5-wrap, #wrap1 .wrap2 .page6-wrap, #wrap1 .wrap2 .page7-wrap {
       width: 100%;
       height: 14.29%; }
@@ -284,3 +308,162 @@ html, body {
 
 .show {
   display: block; }
+.page1 .title1 {
+  animation: scaleIn .8s both ease; }
+
+.page1 .title2 {
+  animation: fadeInUp .8s .5s both ease; }
+
+.page1 .open {
+  animation: fadeInUp .5s 1s both ease; }
+
+.page2 .logo {
+  animation: fadeInLeft .8s both ease; }
+
+.page2 .title {
+  animation: fadeInRight .8s both ease; }
+
+.page2 .content {
+  animation: scaleIn .8s both ease; }
+
+.page3 .title1 {
+  animation: fadeInUp .8s both ease; }
+
+.page3 .title2 {
+  animation: fadeInDown .8s both ease; }
+
+.page3 .content {
+  animation: fadeInRight .8s both ease; }
+
+.page4 .title {
+  animation: fadeInDown .8s both ease; }
+
+.page4 .content1 {
+  animation: fadeInLeft .8s both ease; }
+
+.page4 .content2 {
+  animation: fadeInRight .8s both ease; }
+
+.page4 .content3 {
+  animation: fadeInUp .8s both ease; }
+
+.page5 .title {
+  animation: fadeInLeft .8s both ease; }
+
+.page5 .content {
+  animation: scaleIn .8s both ease; }
+
+.page6 .title {
+  animation: fadeInLeft .8s both ease; }
+
+.page6 .content1 {
+  animation: fadeInLeft .8s .2s both ease; }
+
+.page6 .content2 {
+  animation: fadeInLeft .8s .4s both ease; }
+
+.page6 .content3 {
+  animation: fadeInLeft .8s .6s both ease; }
+
+.page6 .content4 {
+  animation: fadeInLeft .8s .8s both ease; }
+
+.page6 .content5 {
+  animation: fadeInLeft .8s 1.0s both ease; }
+
+.page6 .content6 {
+  animation: fadeInLeft .8s 1.2s both ease; }
+
+.page6 .finger {
+  animation: fingerMove .8s infinite both ease alternate; }
+
+.page7 .title {
+  animation: fadeInDown .8s both ease; }
+
+.page7 .step1 {
+  animation: fadeInRight .8s .2s both ease; }
+
+.page7 .step2 {
+  animation: fadeInRight .8s .4s both ease; }
+
+.page7 .step3 {
+  animation: fadeInRight .8s .6s both ease; }
+
+.page7 .tips {
+  animation: fadeInRight .8s .8s both ease; }
+
+.page7 .action-group {
+  animation: fadeInRight .8s 1.0s both ease; }
+
+.arrow {
+  animation: arrowMove .8s infinite ease; }
+
+@keyframes arrowMove {
+  from {
+    transform: translate3d(0, 0, 0); }
+  to {
+    transform: translate3d(0, 10px, 0); } }
+
+@keyframes fingerMove {
+  from {
+    transform: translate3d(0, 0, 0); }
+  to {
+    transform: translate3d(0, 10px, 0); } }
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(0, 100%); }
+  to {
+    opacity: 1;
+    transform: translate(0, 0); } }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate(0, -100%); }
+  to {
+    opacity: 1;
+    transform: translate(0, 0); } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg); }
+  to {
+    transform: rotate(0deg); } }
+
+@keyframes move {
+  from {
+    -webkit-transform: translate3d(100%, 100%, 0);
+    opacity: 0; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+@keyframes fadeInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    opacity: 0; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+@keyframes fadeInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    opacity: 0; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1; } }
