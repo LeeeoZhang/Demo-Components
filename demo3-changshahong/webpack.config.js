@@ -10,7 +10,7 @@ const extractSass = new ExtractTextPlugin({
 
 
 module.exports = {
-    entry: './main.js',
+    entry: './src/main.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -26,7 +26,15 @@ module.exports = {
 
             },
             {
-                test: /\.(|woff|woff2|eot|ttf||otf)$/,
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader?minimize=false', 'autoprefixer-loader']
+                })
+
+            },
+            {
+                test: /\.(|woff|woff2|eot|ttf|otf)$/,
                 use: [
                     'url-loader?limit=100000'
                 ]

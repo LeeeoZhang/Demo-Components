@@ -1,0 +1,154 @@
+body, html {
+  width: 100%;
+}
+
+#wrap {
+  width: 100%;
+  position: relative;
+  .page {
+    width: 100%;
+    img {
+      vertical-align: middle;
+    }
+  }
+  .ele {
+    position: absolute;
+  }
+  .page1-wrap {
+    position: relative;
+    img[alt=background1-1] {
+      position: absolute;
+      bottom: 0;
+    }
+    .years {
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      top: 3%;
+    }
+    .content {
+      top: 10%;
+    }
+  }
+  .page2-wrap {
+    position: relative;
+    img[alt=background2-1] {
+      position: absolute;
+      bottom: -10%;
+      z-index: 1;
+    }
+    img[alt=background] {
+      transform: translate3d(0, -14%, 0);
+    }
+    .years1, .content1, .years2, .content2 {
+      z-index: 20;
+    }
+    .years1 {
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+    .content1 {
+      top: 5%;
+    }
+    .years2 {
+      bottom: 5%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+    .content2 {
+      bottom: -15%;
+      right: 0;
+    }
+  }
+
+  .page3-wrap {
+    position: relative;
+    background: #dfd5c4;
+    img[alt=background] {
+      transform: translate3d(0, -4%, 0);
+    }
+    img[alt=room] {
+      position: absolute;
+      z-index: 10;
+      top: -4%;
+    }
+    .content {
+      top: 18%;
+      z-index: 15;
+    }
+    .year {
+      top: 53%;
+      z-index: 15;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .page4-wrap {
+    background: #dfd5c4;
+    position: relative;
+    img[alt=background] {
+      transform: translate3d(0, -45%, 0);
+    }
+    .content, .year {
+      z-index: 15;
+    }
+    .content {
+      top: 27%;
+      left: 24%;
+    }
+    .year {
+      top: 20%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .page5-wrap {
+    position: relative;
+    img[alt=background] {
+      transform: translate3d(0, -30%, 0);
+    }
+    img[alt=background-5-1] {
+      position: absolute;
+      bottom: 14%;
+    }
+    .content1,.content2,.content3,.year {
+      z-index: 15;
+    }
+    .content1 {
+      position: absolute;
+      top: -10%;
+      right: 0;
+    }
+
+    .year {
+      top: 24%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+    .content2 {
+      top: 30%;
+      left: 4%;
+    }
+    .content3 {
+      bottom: 12%;
+    }
+  }
+
+  .page6-wrap {
+    position: absolute;
+    bottom: -45.3%;
+    .content1,.content2,.content3,.year1,.year2 {
+      z-index: 15;
+    }
+    .year1 {
+      top: 21%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+    .content1 {
+      top: 24%;
+      right:0;
+    }
+  }
+}
