@@ -5,14 +5,16 @@ body, html {
 #wrap {
   width: 100%;
   position: relative;
+  img {
+    vertical-align: middle;
+  }
   .page {
     width: 100%;
-    img {
-      vertical-align: middle;
-    }
   }
   .ele {
     position: absolute;
+    opacity: 0;
+    z-index: 200;
   }
   .page1-wrap {
     position: relative;
@@ -28,12 +30,29 @@ body, html {
     .content {
       top: 10%;
     }
+    .temple {
+      position: absolute;
+      z-index: 50;
+      left: 0;
+      top: 1260px;
+    }
+    .xianglu {
+      width: 201px;
+      height: 258px;
+      position: absolute;
+      z-index: 100;
+      background: url('./images/deng.png') 0 0/cover;
+      left: 350px;
+      bottom: 484px;
+      -webkit-tap-highlight-color: transparent;
+    }
   }
   .page2-wrap {
     position: relative;
     img[alt=background2-1] {
       position: absolute;
       bottom: -10%;
+      left: 0;
       z-index: 1;
     }
     img[alt=background] {
@@ -84,10 +103,11 @@ body, html {
   }
 
   .page4-wrap {
-    background: #dfd5c4;
     position: relative;
+    background: #8da690;
     img[alt=background] {
       transform: translate3d(0, -45%, 0);
+      vertical-align: middle;
     }
     .content, .year {
       z-index: 15;
@@ -107,12 +127,14 @@ body, html {
     position: relative;
     img[alt=background] {
       transform: translate3d(0, -30%, 0);
+      vertical-align: middle;
     }
     img[alt=background-5-1] {
       position: absolute;
       bottom: 14%;
+      left: 0;
     }
-    .content1,.content2,.content3,.year {
+    .content1, .content2, .content3, .year {
       z-index: 15;
     }
     .content1 {
@@ -138,7 +160,7 @@ body, html {
   .page6-wrap {
     position: absolute;
     bottom: -45.3%;
-    .content1,.content2,.content3,.year1,.year2 {
+    .content1, .content2, .content3, .year1, .year2 {
       z-index: 15;
     }
     .year1 {
@@ -148,7 +170,27 @@ body, html {
     }
     .content1 {
       top: 24%;
-      right:0;
+      right: 0;
+    }
+    .year2 {
+      bottom: 27%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+    .content2 {
+      bottom: 48%;
+      right: 0;
+    }
+    .content3 {
+      bottom: 23%;
+      left: 5%;
+    }
+    .nihong {
+      width: 330px;
+      height: 260px;
+      position: absolute;
+      background: url('./images/d_mihong1.png') 0 0 no-repeat;
+      bottom: 3121px;
     }
   }
 }

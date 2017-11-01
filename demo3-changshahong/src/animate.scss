@@ -1,0 +1,39 @@
+
+#wrap {
+
+  .page1-wrap {
+    .xianglu.animate {
+      animation: xianglu .5s steps(1,start) infinite alternate both;
+    }
+  }
+  .page6-wrap {
+    .nihong {
+      animation: nihong .5s infinite steps(1) alternate both;
+    }
+  }
+}
+
+
+@keyframes nihong {
+  0% {
+    background-position: 0 0 ;
+  }
+  50% {
+    background-position: -330px 0 ;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes xianglu {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -201px 0;
+  }
+  100% {
+    background-position: -402px 0;
+  }
+}
