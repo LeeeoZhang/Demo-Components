@@ -1,37 +1,37 @@
 /*create a stack!*/
 class Stack {
-    constructor () {
+    constructor() {
         this.item = []
     }
 
-    push (element) {
+    push(element) {
         this.item.push(element)
     }
 
-    pop () {
+    pop() {
         this.item.pop()
     }
 
-    isEmpty () {
+    isEmpty() {
         return (this.item.length === 0)
     }
 
-    size () {
+    size() {
         return (this.item.length)
     }
 
-    peek () {
+    peek() {
         return (this.item[this.item.length - 1])
     }
 
-    clear () {
+    clear() {
         this.item = []
     }
 }
 
 
 /*进制转换*/
-function baseConverter (num, base) {
+function baseConverter(num, base) {
     let remStack = new Stack(),
         rem,
         baseString = '',
