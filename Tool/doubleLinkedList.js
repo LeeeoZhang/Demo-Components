@@ -41,11 +41,13 @@ class LinkedList {
                 this.head = node
                 this.tail = node
                 this.length++
+                    return node
             } else {
                 this.head = node
                 node.next = current
                 current.prev = node
                 this.length++
+                    return node
             }
         } else if (position > 0 && position < this.length) {
             while (index < position) {

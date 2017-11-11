@@ -46,6 +46,19 @@ body, html {
       bottom: 484px;
       -webkit-tap-highlight-color: transparent;
     }
+    .finger {
+      position: absolute;
+      left: 460px;
+      bottom: 555px;
+      z-index: 150;
+    }
+    .tip-icon {
+      position: absolute;
+      left: 460px;
+      bottom: 555px;
+      z-index: 150;
+      display: none;
+    }
   }
   .page2-wrap {
     position: relative;
@@ -77,6 +90,25 @@ body, html {
       bottom: -15%;
       right: 0;
     }
+    .yuelushuyuan {
+      position: absolute;
+      left: 0;
+      top: 723px;
+      z-index: 50;
+    }
+    .finger {
+      position: absolute;
+      top: 900px;
+      left: 150px;
+      z-index: 150;
+    }
+    .tip-icon {
+      position: absolute;
+      top: 900px;
+      left: 150px;
+      z-index: 150;
+      display: none;
+    }
   }
 
   .page3-wrap {
@@ -99,6 +131,34 @@ body, html {
       z-index: 15;
       left: 50%;
       transform: translate3d(-50%, 0, 0);
+    }
+    .school {
+      position: absolute;
+      left: 0;
+      top: -158px;
+      z-index: 11;
+    }
+    .finger {
+      position: absolute;
+      top: -50px;
+      left: 336px;
+      z-index: 150;
+    }
+    .tip-icon {
+      position: absolute;
+      top: -50px;
+      left: 315px;
+      z-index: 150;
+      display: none;
+    }
+    .flag{
+      width: 133px;
+      height: 462px;
+      position: absolute;
+      top: -142px;
+      left: 250px;
+      background: url('./images/b_qi.png') 0 0/cover no-repeat;
+      z-index: 60;
     }
   }
 
@@ -192,5 +252,24 @@ body, html {
       background: url('./images/d_mihong1.png') 0 0 no-repeat;
       bottom: 3121px;
     }
+  }
+}
+
+.tips {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 300;
+  box-sizing: border-box;
+  padding-top: 300px;
+  display: none;
+  img {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate3d(-50%,-50%,0);
   }
 }

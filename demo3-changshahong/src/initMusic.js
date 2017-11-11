@@ -1,12 +1,12 @@
-function initMusic ($wrap) {
+function initMusic($wrap) {
     let $musicWrap = $('<div class="bgm play"></div>')
-    let $music = $('<audio loop autoplay></audio>')
+    let $music = $('<audio loop></audio>')
     $music.attr('src', './images/bgm.mp3')
     $musicWrap.css({
         display: 'block',
         position: 'fixed',
         left: '20px',
-        bottom: '30px',
+        top: '30px',
         width: '48px',
         height: '48px',
         backgroundImage: 'url(http://img.cntapp.com/h5/dragon/assets/music.png)',
@@ -14,8 +14,8 @@ function initMusic ($wrap) {
         zIndex: 50
     })
 
-    $musicWrap.on('click',function(){
-        if($(this).hasClass('play')) {
+    $musicWrap.on('click', function() {
+        if ($(this).hasClass('play')) {
             $(this).removeClass('play').addClass('pause').css({
                 backgroundPosition: '0 0'
             })
@@ -33,4 +33,6 @@ function initMusic ($wrap) {
 
 }
 
-export {initMusic}
+export {
+    initMusic
+}

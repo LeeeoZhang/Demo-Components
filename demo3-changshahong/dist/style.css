@@ -39,6 +39,17 @@ body, html {
       left: 350px;
       bottom: 484px;
       -webkit-tap-highlight-color: transparent; }
+    #wrap .page1-wrap .finger {
+      position: absolute;
+      left: 460px;
+      bottom: 555px;
+      z-index: 150; }
+    #wrap .page1-wrap .tip-icon {
+      position: absolute;
+      left: 460px;
+      bottom: 555px;
+      z-index: 150;
+      display: none; }
   #wrap .page2-wrap {
     position: relative; }
     #wrap .page2-wrap img[alt=background2-1] {
@@ -65,6 +76,22 @@ body, html {
     #wrap .page2-wrap .content2 {
       bottom: -15%;
       right: 0; }
+    #wrap .page2-wrap .yuelushuyuan {
+      position: absolute;
+      left: 0;
+      top: 723px;
+      z-index: 50; }
+    #wrap .page2-wrap .finger {
+      position: absolute;
+      top: 900px;
+      left: 150px;
+      z-index: 150; }
+    #wrap .page2-wrap .tip-icon {
+      position: absolute;
+      top: 900px;
+      left: 150px;
+      z-index: 150;
+      display: none; }
   #wrap .page3-wrap {
     position: relative;
     background: #dfd5c4; }
@@ -84,6 +111,30 @@ body, html {
       left: 50%;
       -webkit-transform: translate3d(-50%, 0, 0);
       transform: translate3d(-50%, 0, 0); }
+    #wrap .page3-wrap .school {
+      position: absolute;
+      left: 0;
+      top: -158px;
+      z-index: 11; }
+    #wrap .page3-wrap .finger {
+      position: absolute;
+      top: -50px;
+      left: 336px;
+      z-index: 150; }
+    #wrap .page3-wrap .tip-icon {
+      position: absolute;
+      top: -50px;
+      left: 315px;
+      z-index: 150;
+      display: none; }
+    #wrap .page3-wrap .flag {
+      width: 133px;
+      height: 462px;
+      position: absolute;
+      top: -142px;
+      left: 250px;
+      background: url(616b245de1a7c4fc051e7288ce8525fc.png) 0 0/cover no-repeat;
+      z-index: 60; }
   #wrap .page4-wrap {
     position: relative;
     background: #8da690; }
@@ -157,13 +208,95 @@ body, html {
       position: absolute;
       background: url(57a08c565a144e6186df2cda41af5510.png) 0 0 no-repeat;
       bottom: 3121px; }
+
+.tips {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 300;
+  box-sizing: border-box;
+  padding-top: 300px;
+  display: none; }
+  .tips img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0); }
 #wrap .page1-wrap .xianglu.animate {
   -webkit-animation: xianglu 0.5s steps(1, start) infinite alternate both;
   animation: xianglu 0.5s steps(1, start) infinite alternate both; }
 
+#wrap .page3-wrap .flag.animate {
+  -webkit-animation: flag 0.5s steps(1, start) infinite alternate both;
+  animation: flag 0.5s steps(1, start) infinite alternate both; }
+
 #wrap .page6-wrap .nihong {
   -webkit-animation: nihong 0.5s infinite steps(1) alternate both;
   animation: nihong 0.5s infinite steps(1) alternate both; }
+
+#wrap .finger {
+  -webkit-animation: fingerBlink 1s infinite linear alternate both;
+  animation: fingerBlink 1s infinite linear alternate both; }
+
+#wrap .tip-icon {
+  -webkit-animation: tipScale 1s infinite linear alternate both;
+  animation: tipScale 1s infinite linear alternate both; }
+
+@-webkit-keyframes flag {
+  0% {
+    background-position: 0 0; }
+  25% {
+    background-position: -133px 0; }
+  50% {
+    background-position: -266px 0; }
+  75% {
+    background-position: -399px 0; }
+  100% {
+    background-position: 0 0; } }
+
+@keyframes flag {
+  0% {
+    background-position: 0 0; }
+  25% {
+    background-position: -133px 0; }
+  50% {
+    background-position: -266px 0; }
+  75% {
+    background-position: -399px 0; }
+  100% {
+    background-position: 0 0; } }
+
+@-webkit-keyframes tipScale {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
+@keyframes tipScale {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
+@-webkit-keyframes fingerBlink {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes fingerBlink {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 
 @-webkit-keyframes nihong {
   0% {
