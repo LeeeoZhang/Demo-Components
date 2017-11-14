@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54d33bca-8cc4-40c6-b8e5-dd0e5985ec1e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo1-yaoqinghan/jquery.imgpreload" afterPath="$PROJECT_DIR$/demo1-yaoqinghan/jquery.imgpreload" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,12 +17,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fullpage-mobile/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
+            <state relative-caret-position="695">
               <caret line="123" column="10" lean-forward="false" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vue-test.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vue-test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="798">
+              <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+              <folding>
+                <marker date="1510397290000" expanded="true" signature="956:1040" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,6 +53,7 @@
         <option value="$PROJECT_DIR$/BOM-lib/index.js" />
         <option value="$PROJECT_DIR$/DOM-lib/index.js" />
         <option value="$PROJECT_DIR$/fullpage-mobile/index.html" />
+        <option value="$PROJECT_DIR$/vue-test.html" />
       </list>
     </option>
   </component>
@@ -58,13 +72,18 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/The Grandmaster/node_modules" />
+    <handled-path value="$PROJECT_DIR$/cookie-demo/node_modules" />
+    <handled-path value="$PROJECT_DIR$/demo1-yaoqinghan/node_modules" />
+    <handled-path value="$PROJECT_DIR$/demo2-guizhou/node_modules" />
+    <handled-path value="$PROJECT_DIR$/demo3-changshahong/node_modules" />
     <handled-path value="$PROJECT_DIR$/news_waterfall/node_modules" />
     <handled-path value="$PROJECT_DIR$/weather_npm/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-1920" />
+    <option name="y" value="-68" />
+    <option name="width" value="848" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -112,7 +131,7 @@
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.selected.package.jscs" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
@@ -148,24 +167,26 @@
       <workItem from="1507644975233" duration="3000" />
       <workItem from="1508729671037" duration="3710000" />
       <workItem from="1508739778389" duration="2000" />
+      <workItem from="1510394706356" duration="3602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17455000" />
+    <option name="totallyTimeSpent" value="21057000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="-1920" y="-68" width="848" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19936457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16506189" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -204,6 +225,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/fullpage-mobile/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fullpage-mobile/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -341,9 +370,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fullpage-mobile/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
+        <state relative-caret-position="695">
           <caret line="123" column="10" lean-forward="false" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+          <folding>
+            <marker date="1510397290000" expanded="true" signature="956:1040" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

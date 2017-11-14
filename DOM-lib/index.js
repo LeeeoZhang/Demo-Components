@@ -94,7 +94,7 @@ let Dom = {
         element.addEventListener('touchstart', function(event) { //记录初始触摸坐标
             let event = event || window.event //兼容ie
             x0 = event.touches[0].clientX
-            y0 = event.touches[0], clientY
+            y0 = event.touches[0].clientY
         })
         element.addEventListener('touchmove', function(event) {
             let event = event || window.event
