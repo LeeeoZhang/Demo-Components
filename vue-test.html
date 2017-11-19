@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-test</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+
+
+	<div id="app">
+		<h1>Hellp App!</h1>
+		<p>
+			<router-link to='/foo'>Go to Foo</router-link>
+			<router-link to='/bar'>Go to Bar</router-link>
+
+			<router-link to='/user/bar'>Go to user-bar</router-link>
+			<router-link to='/user/foo'>Go to user-foo</router-link>
+
+			<router-link to='/user/bar/profile'>Go to user-foo</router-link>
+			<router-link to='/user/foo/posts'>Go to user-foo</router-link>
+
+		</p>
+		<router-view></router-view>
+	</div>
+
+	<script>
+
+		const Foo = {template: '<div>foo</div>'}
+        const Bar = {template: '<div>bar</div>'}
+
+        const UserProfile = {template: '<div>profile</div>'}
+        const UserPosts = {template: '<div>posts</div>'}
+
+        const User = {
+		    template:
+				`<div>
+					<h1>User,{{$route.params.id}}</h1>
+					<router-view></router-view>
+				</div>`,
+
+			//通过watch检测路由变化
+//			watch: {
+//		        '$route'(to, from){
+//		            console.log('发生了变化')
+//					console.log(to,from)
+//				}
+//			}
+			//或者引入守卫
+			//记得调用next进行跳转
+			beforeRouteUpdate(to, from, next) {
+		        console.log('发生变化了')
+				next()
+			}
+		}
+
+        const routes = [
+			{path: '/foo', component: Foo},
+            {path: '/bar', component: Bar},
+			//动态路由
+			{
+			    //嵌套路由
+			    path: '/user/:id', component: User,
+				children: [
+					{path: 'profile', component: UserProfile},
+					{path: 'posts', component: UserPosts}
+				]
+			}
+		]
+
+		const router = new VueRouter({
+			routes
+		})
+
+		const app = new Vue({
+			el: '#app',
+			router
+		})
+	</script>
+</body>
+</html>
